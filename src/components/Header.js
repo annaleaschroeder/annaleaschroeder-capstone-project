@@ -44,13 +44,13 @@ const HeaderStyled = styled.header`
 
 const Headline = styled.h1`
   text-align: center;
-  margin: 0%;
+  margin: 0;
   font-size: 200%;
   display: block;
 `
 const SubHeadline = styled.h2`
   text-align: center;
-  margin: 0%;
+  margin: 0;
   font-size: 150%;
   display: block;
 `

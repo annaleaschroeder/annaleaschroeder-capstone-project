@@ -132,15 +132,3 @@ describe('Header', () => {
     expect(tree).toMatchSnapshot()
   })
 })
-
-// describe('Header', () => {
-//   test('renders title and subtitle', () => {
-//     render(<Header date={new Date()} />)
-//   })
-// })
-
-// describe('Header', () => {
-//   test('month and year get updated in subtitle', () => {
-//     render(<Header date={new Date('1988-03-21')} />)
-//   })
-// })
