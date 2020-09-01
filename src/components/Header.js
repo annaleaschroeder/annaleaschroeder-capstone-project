@@ -35,20 +35,22 @@ export default function Header({ date }) {
 }
 
 const HeaderStyled = styled.header`
-  position: fixed;
-  width: 100vw;
+  width: 100%;
   z-index: 200;
-  background-color: hotpink;
+  background-color: whitesmoke;
   padding: 10px;
+  text-align: center;
 `
 
 const Headline = styled.h1`
   text-align: center;
   margin: 0%;
   font-size: 200%;
+  display: block;
 `
 const SubHeadline = styled.h2`
   text-align: center;
   margin: 0%;
   font-size: 150%;
+  display: block;
 `
