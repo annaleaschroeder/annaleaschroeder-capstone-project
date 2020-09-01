@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly for April 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    April 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for August 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    August 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for December 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    December 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for February 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    February 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for January 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    January 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for January 2021 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    January 2021
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for July 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    July 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for June 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    June 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for March 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    March 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for May 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    May 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for November 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    October 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for October 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    October 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for September 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1uw4t5o-0 fLDDkq"
+>
+  <h1
+    className="Header__Headline-sc-1uw4t5o-1 durQIr"
+  >
+    Budget Overview
+  </h1>
+  <h2
+    className="Header__SubHeadline-sc-1uw4t5o-2 zGLDe"
+  >
+    September 2020
+  </h2>
+</header>
+`;
