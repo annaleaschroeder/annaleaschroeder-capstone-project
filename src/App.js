@@ -9,7 +9,7 @@ function App() {
 
   const date = new Date()
   const dateConventionSettings = {
-    weekday: 'long',
+    // weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',

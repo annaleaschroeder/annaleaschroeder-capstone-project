@@ -4,21 +4,54 @@ import styled from 'styled-components/macro'
 
 export default function TransactionFormInput({ onSubmit, number }) {
   return (
-    <form onSubmit={onSubmit}>
+    <FormStyled onSubmit={onSubmit}>
       <PlaceholderButton>Placeholder-Toggle</PlaceholderButton>
-      <input
-        number={number}
-        id="transactionInput"
-        name="transactionInput"
-        placeholder="Enter new Transaction"
-      />
+      <InputContainer>
+        <input
+          number={number}
+          id="transactionInput"
+          name="transactionInput"
+          placeholder="Enter new Transaction"
+        />
+      </InputContainer>
       <LableStyled htmlFor="transactionInput">Euro</LableStyled>
       <AddTransactionButton>Add Transaction</AddTransactionButton>
-    </form>
+    </FormStyled>
   )
 }
 
-// export default function TransactionFormInput() {
+const FormStyled = styled.form`
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 20px;
+`
+const InputContainer = styled.div`
+  display: flex;
+`
+const PlaceholderButton = styled.div`
+  display: block;
+  width: 150px;
+  height: auto;
+  padding: 10px;
+  justify-content: center;
+`
+
+const AddTransactionButton = styled.button`
+  display: block;
+  width: 100px;
+  height: auto;
+  padding: 10px;
+  background-color: green;
+  justify-content: grid-column-end;
+`
+
+const LableStyled = styled.label`
+  font-weight: bold;
+`
+
+/* // export default function TransactionFormInput() {
 //   const [formData, setFormData] = useState('')
 //   const [disabledButton, setDisabledButton] = useState(true)
 //   return (
@@ -44,9 +77,9 @@ export default function TransactionFormInput({ onSubmit, number }) {
 //     </FormStyled>
 //   )
 
-//   function handleChange() {
-//     setDisabledButton(formData.transaction === '' ? true : false)
-//   }
+// function handleChange() {
+//   setDisabledButton(formData.transaction === '' ? true : false)
+// }
 
 //   function handleAdd(event) {
 //     event.preventDevault()
@@ -72,29 +105,10 @@ export default function TransactionFormInput({ onSubmit, number }) {
 //   grid-template-columns: auto auto;
 //   gap: 20px;
 // `
-const PlaceholderButton = styled.button`
-  display: block;
-  width: 150px;
-  height: auto;
-  padding: 10px;
-  justify-content: center;
-`
-
 // const TransactionInput = styled.input`
 //   display: block;
 // `
 
 // const Currency = styled.h4`
 //   display: inline-block;
-// `
-const AddTransactionButton = styled.button`
-  display: block;
-  width: 100px;
-  height: auto;
-  padding: 10px;
-  background-color: green;
-  justify-content: grid-column-end;
-`
-const LableStyled = styled.label`
-  font-weight: bold;
-`
+// ` */
