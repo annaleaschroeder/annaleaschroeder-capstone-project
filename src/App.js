@@ -15,12 +15,12 @@ function App() {
     day: 'numeric',
   }
   const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
-  console.log(timestamp)
+
   return (
     <div>
       <Header date={new Date()} />
-      <TransactionFormInput onSubmit={handleSubmit} />
-      <TransactionList transactions={transaction} />
+      <TransactionFormInput timestamp={timestamp} onSubmit={handleSubmit} />
+      <TransactionList timestamp={timestamp} transactions={transaction} />
     </div>
   )
 

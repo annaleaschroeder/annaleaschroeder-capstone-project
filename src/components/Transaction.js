@@ -1,10 +1,10 @@
 import React from 'react'
 //import styled from 'styled-components/macro'
 
-export default function Transaction({ timestamp, newTransaction }) {
+export default function Transaction({ createdAt, newTransaction }) {
   return (
     <section>
-      <p>{timestamp + ' ' + newTransaction}</p>
+      <p>{createdAt + ' ' + newTransaction}</p>
     </section>
   )
 }
