@@ -10,7 +10,6 @@ export default function ToggleSwitch({ toggled, onChange }) {
 }
 
 const Switch = ({ id, toggled, onChange }) => {
-  console.log(toggled)
   return (
     <>
       <SwitchInput
@@ -21,15 +20,15 @@ const Switch = ({ id, toggled, onChange }) => {
         onChange={onChange}
       />
       <SwitchLabel toggled={toggled} className="switch-label" htmlFor={id}>
-        <SwitchButton className="switch-button" />
+        <SwitchButton className="switch-button"></SwitchButton>
       </SwitchLabel>
     </>
   )
 }
 
 const toggleColors = {
-  true: 'green', //entspricht income
-  false: 'red', //entspricht spending
+  true: '#36ffa1', //entspricht income
+  false: '#ff7a78', //entspricht spending
 }
 
 const SwitchInput = styled.input`

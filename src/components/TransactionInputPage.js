@@ -7,7 +7,7 @@ import styled from 'styled-components/macro'
 
 export default function TransactionInputPage() {
   const [transaction, setTransaction] = useState([])
-  const [toggled, setToggled] = useState(false)
+  const [isToggled, setIsToggled] = useState(false)
 
   const date = new Date()
   const dateConventionSettings = {
@@ -19,7 +19,11 @@ export default function TransactionInputPage() {
 
   return (
     <>
-      <ToggleSwitch toggled={toggled} onClick={handleClick} />
+      <ToggleSwitch
+        id="test-switch"
+        toggled={isToggled}
+        onChange={(event) => setIsToggled(event.target.checked)}
+      />
       <TransactionFormInput onSubmit={handleSubmit} />
       <BalanceContainer>
         <BalanceHeadline>
@@ -40,17 +44,18 @@ export default function TransactionInputPage() {
     setTransaction([...transaction, { timestamp, number, id: uuidv4() }])
     form.reset()
   }
-
-  function handleClick() {
-    setToggled((s) => !s)
-  }
 }
 
 const BalanceContainer = styled.div`
   display: flex;
 `
-
-const BalanceHeadline = styled.h4``
+const BalanceHeadline = styled.div`
+  display: inline;
+`
 const Balance = styled.h5`
   display: inline;
 `
+// function handleClick() {
+//   setToggled((s) => !s)
+// }
+// }
