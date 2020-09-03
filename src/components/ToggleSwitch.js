@@ -12,20 +12,36 @@ export default function ToggleSwitch({ toggled, onChange }) {
 const Switch = ({ id, toggled, onChange }) => {
   return (
     <>
-      <SwitchInput
-        className="switch-checkbox"
-        id={id}
-        type="checkbox"
-        checked={toggled}
-        onChange={onChange}
-      />
-      <SwitchLabel toggled={toggled} className="switch-label" htmlFor={id}>
-        <SwitchButton className="switch-button"></SwitchButton>
-      </SwitchLabel>
+      <SwitchContainer>
+        <SpendingRed>Spending</SpendingRed>
+        <SwitchInput
+          className="switch-checkbox"
+          id={id}
+          type="checkbox"
+          checked={toggled}
+          onChange={onChange}
+        />
+        <SwitchLabel toggled={toggled} className="switch-label" htmlFor={id}>
+          <SwitchButton className="switch-button"></SwitchButton>
+        </SwitchLabel>
+        <IncomeGreen>Income</IncomeGreen>
+      </SwitchContainer>
     </>
   )
 }
 
+const SwitchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+const SpendingRed = styled.div`
+  color: red;
+  font-weight: bold;
+`
+const IncomeGreen = styled.div`
+  color: green;
+  font-weight: bold;
+`
 const toggleColors = {
   true: '#36ffa1', //entspricht income
   false: '#ff7a78', //entspricht spending
