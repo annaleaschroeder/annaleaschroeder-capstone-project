@@ -8,7 +8,6 @@ describe('Header', () => {
   const date = new Date()
   it('shows the main headline', () => {
     const { getByText } = render(<Header date={date} />)
-
     expect(getByText('Budget Overview')).toBeInTheDocument()
   })
 

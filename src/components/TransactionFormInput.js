@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import ToggleSwitch from './ToggleSwitch'
 //import { v4 as uuidv4 } from 'uuid'
 
 export default function TransactionFormInput({ onSubmit, number }) {
   return (
     <FormStyled onSubmit={onSubmit}>
-      <ToggleSwitch />
       <InputContainer>
         <input
           number={number}
