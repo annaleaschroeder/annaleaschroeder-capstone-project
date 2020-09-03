@@ -32,10 +32,10 @@ const InputContainer = styled.div`
 
 const AddTransactionButton = styled.button`
   display: block;
-  width: 100px;
+  width: 200px;
   height: auto;
   padding: 10px;
-  background-color: green;
+  background-color: lightgrey;
   justify-content: grid-column-end;
 `
 

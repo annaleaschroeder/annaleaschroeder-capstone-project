@@ -55,7 +55,3 @@ const BalanceHeadline = styled.div`
 const Balance = styled.h5`
   display: inline;
 `
-// function handleClick() {
-//   setToggled((s) => !s)
-// }
-// }
