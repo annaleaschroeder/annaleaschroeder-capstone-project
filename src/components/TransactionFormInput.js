@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import ToggleSwitch from './ToggleSwitch'
 //import { v4 as uuidv4 } from 'uuid'
 
 export default function TransactionFormInput({ onSubmit, number }) {
   return (
     <FormStyled onSubmit={onSubmit}>
-      <PlaceholderButton>Placeholder-Toggle</PlaceholderButton>
+      <ToggleSwitch />
       <InputContainer>
         <input
           number={number}
@@ -29,13 +30,6 @@ const FormStyled = styled.form`
 `
 const InputContainer = styled.div`
   display: flex;
-`
-const PlaceholderButton = styled.div`
-  display: block;
-  width: 150px;
-  height: auto;
-  padding: 10px;
-  justify-content: center;
 `
 
 const AddTransactionButton = styled.button`
