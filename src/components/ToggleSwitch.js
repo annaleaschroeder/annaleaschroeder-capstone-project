@@ -2,11 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function ToggleSwitch({ toggled, onChange }) {
-  return (
-    <div>
-      <Switch id="test-switch" toggled={toggled} onChange={onChange} />
-    </div>
-  )
+  return <Switch id="test-switch" toggled={toggled} onChange={onChange} />
 }
 
 const Switch = ({ id, toggled, onChange }) => {

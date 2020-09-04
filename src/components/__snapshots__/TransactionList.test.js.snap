@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Lists all incoming Transactions renders correctly 1`] = `
-<section>
-  <section>
-    <p>
+<ul>
+  <li>
+    <section>
       undefined undefined
-    </p>
-  </section>
-</section>
+    </section>
+  </li>
+</ul>
 `;

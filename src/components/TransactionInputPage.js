@@ -5,16 +5,16 @@ import { v4 as uuidv4 } from 'uuid'
 import ToggleSwitch from './ToggleSwitch'
 import styled from 'styled-components/macro'
 
+const dateConventionSettings = {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+}
 export default function TransactionInputPage() {
   const [transaction, setTransaction] = useState([])
   const [isToggled, setIsToggled] = useState(false)
 
   const date = new Date()
-  const dateConventionSettings = {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-  }
   const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
 
   return (

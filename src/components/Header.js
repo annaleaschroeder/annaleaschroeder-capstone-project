@@ -6,22 +6,22 @@ Header.propTypes = {
   date: PropTypes.object.isRequired,
 }
 
-export default function Header({ date }) {
-  const month = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ]
+const month = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+]
 
+export default function Header({ date }) {
   const year = date.getFullYear()
   const monthNumber = date.getMonth()
   const newMonth = month[monthNumber]
