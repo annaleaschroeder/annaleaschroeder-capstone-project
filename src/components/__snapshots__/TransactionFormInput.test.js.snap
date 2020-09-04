@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transaction Input Form renders correctly 1`] = `
+<form
+  className="TransactionFormInput__FormStyled-sc-1g5amkv-0 teDON"
+  onSubmit={[Function]}
+>
+  <div
+    className="TransactionFormInput__InputContainer-sc-1g5amkv-1 cGfFMQ"
+  >
+    <input
+      id="transactionInput"
+      name="transactionInput"
+      number="15"
+      placeholder="Enter new Transaction"
+    />
+  </div>
+  <label
+    className="TransactionFormInput__LableStyled-sc-1g5amkv-3 kSCYJM"
+    htmlFor="transactionInput"
+  >
+    Euro
+  </label>
+  <button
+    className="TransactionFormInput__AddTransactionButton-sc-1g5amkv-2 bxIPyk"
+  >
+    Add Transaction
+  </button>
+</form>
+`;

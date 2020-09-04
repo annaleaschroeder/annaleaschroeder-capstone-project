@@ -2,13 +2,11 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import Header from './Header'
 import renderer from 'react-test-renderer'
-//import 'jest-styled-components'
 
 describe('Header', () => {
   const date = new Date()
   it('shows the main headline', () => {
     const { getByText } = render(<Header date={date} />)
-
     expect(getByText('Budget Overview')).toBeInTheDocument()
   })
 
