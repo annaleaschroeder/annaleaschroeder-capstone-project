@@ -12,18 +12,14 @@ const dateConventionSettings = {
 }
 export default function TransactionInputPage() {
   const [transaction, setTransaction] = useState([])
-  const [isToggled, setIsToggled] = useState(false)
+  const [selected, setSelected] = useState(false)
 
   const date = new Date()
   const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
 
   return (
     <>
-      <ToggleSwitch
-        id="test-switch"
-        toggled={isToggled}
-        onChange={(event) => setIsToggled(event.target.checked)}
-      />
+      <ToggleSwitch selected={selected} toggleSelected={handleToggle} />
       <TransactionFormInput onSubmit={handleSubmit} />
       <BalanceContainer>
         <BalanceHeadline>
@@ -35,6 +31,10 @@ export default function TransactionInputPage() {
       <TransactionList timestamp={timestamp} transactions={transaction} />
     </>
   )
+
+  function handleToggle() {
+    setSelected(!selected)
+  }
 
   function handleSubmit(event) {
     event.preventDefault()
