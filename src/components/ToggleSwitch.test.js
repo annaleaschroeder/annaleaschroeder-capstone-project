@@ -1,8 +1,10 @@
 import React from 'react'
 import ToggleSwitch from './ToggleSwitch'
-import { render, screen } from 'react-dom'
+import { render } from '@testing-library/react'
 
 describe('ToggleSwitch', () => {
-  render(<ToggleSwitch />)
-  screen.getByRole('')
+  it('renders correctly', () => {
+    const { container } = render(<ToggleSwitch />)
+    expect(container).toMatchSnapshot()
+  })
 })
