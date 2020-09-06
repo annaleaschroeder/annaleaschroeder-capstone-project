@@ -5,9 +5,12 @@ import renderer from 'react-test-renderer'
 describe('Transaction Input Form', () => {
   it('renders correctly', () => {
     const noOp = () => {}
-    const number = '15'
+    const transactionvalue = '15'
     const tree = renderer.create(
-      <TransactionFormInput number={number} onSubmit={noOp} />
+      <TransactionFormInput
+        transactionvalue={transactionvalue}
+        onSubmit={noOp}
+      />
     )
     expect(tree).toMatchSnapshot()
   })

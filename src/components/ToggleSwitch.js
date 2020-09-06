@@ -51,7 +51,6 @@ const DialogueButton = styled.div`
   border-radius: 18px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   min-width: 50px;
-  /* width: 38px; */
   min-width: unset;
   border-radius: 3px;
   left: 50px;
