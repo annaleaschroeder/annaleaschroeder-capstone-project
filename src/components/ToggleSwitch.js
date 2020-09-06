@@ -19,8 +19,6 @@ export default function ToggleSwitch({ selected, toggleSelected }) {
   )
 }
 
-//org. width 70px, height: 32px
-
 const ToggleWrapper = styled.div`
   display: flex;
   justify-content: center;
