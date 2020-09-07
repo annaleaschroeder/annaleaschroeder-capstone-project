@@ -4,6 +4,7 @@ import TransactionList from './TransactionList'
 import { v4 as uuidv4 } from 'uuid'
 import ToggleSwitch from './ToggleSwitch'
 import styled from 'styled-components/macro'
+import { useForm } from 'react-hook-form'
 
 const dateConventionSettings = {
   year: 'numeric',
@@ -13,6 +14,7 @@ const dateConventionSettings = {
 export default function TransactionInputPage() {
   const [transaction, setTransaction] = useState([])
   const [selected, setSelected] = useState(false)
+  const { register, errors } = useForm()
 
   const date = new Date()
   const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
@@ -20,7 +22,11 @@ export default function TransactionInputPage() {
   return (
     <>
       <ToggleSwitch selected={selected} toggleSelected={handleToggle} />
-      <TransactionFormInput onSubmit={handleSubmit} />
+      <TransactionFormInput
+        onSubmit={handleSubmit}
+        register={register}
+        errors={errors}
+      />
       <BalanceContainer>
         <BalanceHeadline>
           Monthly Balance: <Balance>2000,00</Balance>
