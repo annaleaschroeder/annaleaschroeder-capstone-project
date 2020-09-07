@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function TransactionFormInput({ onSubmit, number }) {
+export default function TransactionFormInput({ onSubmit, transactionValue }) {
   return (
     <FormStyled onSubmit={onSubmit}>
       <InputContainer>
         <input
-          number={number}
+          transactionvalue={transactionValue}
           id="transactionInput"
           name="transactionInput"
           placeholder="Enter new Transaction"
