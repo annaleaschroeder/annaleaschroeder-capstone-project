@@ -5,10 +5,10 @@ import renderer from 'react-test-renderer'
 describe('Transaction Input Form', () => {
   it('renders correctly', () => {
     const noOp = () => {}
-    const transactionvalue = '15'
+    const transactionValue = 15
     const tree = renderer.create(
       <TransactionFormInput
-        transactionvalue={transactionvalue}
+        transactionvalue={transactionValue}
         onSubmit={noOp}
       />
     )

@@ -40,13 +40,12 @@ const DialogueButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: 80%;
   font-weight: bold;
   line-height: 16px;
   color: white;
   background-color: #158467;
   padding: 8px 12px;
-  border-radius: 18px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   min-width: 50px;
   min-width: unset;

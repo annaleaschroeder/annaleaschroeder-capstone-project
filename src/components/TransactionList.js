@@ -6,11 +6,11 @@ export default function TransactionList({ transactions }) {
 
   return (
     <ul>
-      {transactions.map(({ timestamp, transactionvalue, id }) => (
+      {transactions.map(({ timestamp, transactionValue, id }) => (
         <li key={id}>
           <Transaction
             createdAt={timestamp}
-            newTransaction={transactionvalue}
+            newTransaction={transactionValue}
           />
         </li>
       ))}

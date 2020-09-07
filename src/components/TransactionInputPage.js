@@ -40,11 +40,11 @@ export default function TransactionInputPage() {
     event.preventDefault()
     const form = event.target
     const input = form.transactionInput
-    const transactionvalue = input.value
+    const transactionValue = input.value
     const transactiontype = selected ? 'income' : 'spending'
     setTransaction([
       ...transaction,
-      { timestamp, transactionvalue, id: uuidv4(), transactiontype },
+      { timestamp, transactionValue, id: uuidv4(), transactiontype },
     ])
     form.reset()
   }
