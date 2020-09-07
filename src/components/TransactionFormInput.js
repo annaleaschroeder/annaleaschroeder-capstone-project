@@ -1,34 +1,35 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { useForm } from 'react-hook-form'
 
+export default function TransactionFormInput() {
+  const { register, handleSubmit, errors } = useForm()
+  const onSubmit = (transactionValue, event) => {
+    event.target.reset()
+    return transactionValue
+  }
 
-export default function TransactionFormInput({
-  onSubmit,
-  number,
-  register,
-  errors,
-}) {
   return (
-    <FormStyled onSubmit={onSubmit}>
+    <FormStyled onSubmit={handleSubmit(onSubmit)}>
       <InputContainer>
         <input
-          number={number}
           id="transactionInput"
           name="transactionInput"
           placeholder="Enter new Transaction"
-          type="number"
-          step="0.01"
           ref={register({
             required: true,
             min: 1,
-            pattern: /'^[0-9]+([.][0-9]{1,2})?'/i,
+            // pattern: /'^[0-9]+([.][0-9]{1,2})?'/i,
           })}
         />
         {errors.transactionInput &&
-          'You need to enter a valid transaction. Example: 20,95.'}
+          errors.transactionInput.type === 'required' && (
+            <p>Transaction required. Example: 20.95. </p>
+          )}
       </InputContainer>
       <LableStyled htmlFor="transactionInput">Euro</LableStyled>
-      <AddTransactionButton>Add Transaction</AddTransactionButton>
+      <CancelButton type="reset">Cancel</CancelButton>
+      <AddTransactionButton type="submit">Add Transaction</AddTransactionButton>
     </FormStyled>
   )
 }
@@ -55,4 +56,12 @@ const AddTransactionButton = styled.button`
 
 const LableStyled = styled.label`
   font-weight: bold;
+`
+const CancelButton = styled.button`
+  display: block;
+  width: 100px;
+  height: auto;
+  padding: 10px;
+  background-color: lightgrey;
+  justify-content: grid-column-end;
 `
