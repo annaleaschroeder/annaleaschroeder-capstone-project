@@ -1,28 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TransactionFormInput from './TransactionFormInput'
 import TransactionList from './TransactionList'
 import ToggleSwitch from './ToggleSwitch'
 import styled from 'styled-components/macro'
-import useTransactions from './hooks/useTransactions'
+import {
+  getTransactionEntries,
+  postNewTransactionEntry,
+} from './utils/services'
 
-// const dateConventionSettings = {
-//   year: 'numeric',
-//   month: 'numeric',
-//   day: 'numeric',
-// }
-export default function TransactionInputPage({ onSubmit }) {
+export default function TransactionInputPage() {
   const [selected, setSelected] = useState(false)
-  const { transactions, addTransactionEntry } = useTransactions()
-  // const date = new Date()
-  // const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
+  const [value, setValue] = useState('')
+  const [transactions, setTransactions] = useState([])
+
+  useEffect(() => {
+    getTransactionEntries().then(setTransactions)
+  }, [])
+
+  const sum = transactions.reduce(function (acc, transaction) {
+    return acc + transaction.value * (transaction.type === 'spending' ? -1 : 1)
+  }, 0.0)
 
   return (
     <>
       <ToggleSwitch selected={selected} toggleSelected={handleToggle} />
-      <TransactionFormInput onSubmit={addTransactionEntry} />
+      <TransactionFormInput
+        value={value}
+        setValue={setValue}
+        onSave={onSaveAddTransactionEntry}
+      />
       <BalanceContainer>
         <BalanceHeadline>
-          Monthly Balance: <Balance>2000,00</Balance>
+          Monthly Balance: <Balance>{sum.toFixed(2).replace('.', ',')}</Balance>
         </BalanceHeadline>
       </BalanceContainer>
       <hr />
@@ -35,13 +44,16 @@ export default function TransactionInputPage({ onSubmit }) {
     setSelected(!selected)
   }
 
-  //   function addNewTransaction(transactionValue) {
-  //     const transaction = transactionValue
-  //     setTransaction([
-  //       ...transaction,
-  //       { timestamp, transactionValue, id: uuidv4() },
-  //     ])
-  //   }
+  function onSaveAddTransactionEntry() {
+    const newTransaction = {
+      type: selected ? 'income' : 'spending',
+      value: parseFloat(value.replace(',', '.')),
+    }
+
+    postNewTransactionEntry(newTransaction).then(setTransactions)
+    setSelected(false)
+    setValue('')
+  }
 }
 
 const BalanceContainer = styled.div`

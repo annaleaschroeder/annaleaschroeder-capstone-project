@@ -4,11 +4,12 @@ import Transaction from './Transaction'
 export default function TransactionList({ transactions }) {
   return (
     <ul>
-      {transactions.map(({ timestamp, transactionValue, id }) => (
+      {transactions.map(({ timestamp, value, id, type }) => (
         <li key={id}>
           <Transaction
             createdAt={timestamp}
-            newTransaction={transactionValue}
+            newTransaction={value}
+            type={type}
           />
         </li>
       ))}

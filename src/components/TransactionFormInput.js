@@ -2,12 +2,16 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import { useForm } from 'react-hook-form'
 
-export default function TransactionFormInput({ onSave }) {
+export default function TransactionFormInput({ onSave, value, setValue }) {
   const { register, handleSubmit, errors } = useForm()
 
-  const onSubmit = (transaction, event) => {
-    event.target.reset()
-    onSave(transaction)
+  const onSubmit = () => {
+    //event.target.reset()
+    onSave()
+  }
+
+  const onChange = (event) => {
+    setValue(event.target.value)
   }
 
   return (
@@ -17,15 +21,17 @@ export default function TransactionFormInput({ onSave }) {
           id="transactionInput"
           name="transactionInput"
           placeholder="Enter new Transaction"
+          onChange={onChange}
+          value={value}
           ref={register({
             required: true,
             min: 1,
-            pattern: /^[0-9]+\,[0-9]{2}$/,
+            pattern: /^[0-9]+,[0-9]{2}$/,
           })}
         />
         {errors.transactionInput &&
           errors.transactionInput.type === 'required' && (
-            <span>Transaction required. Example: 20.95.</span>
+            <span>Transaction required. Example: 20,95.</span>
           )}
       </InputContainer>
       <LableStyled htmlFor="transactionInput">Euro</LableStyled>

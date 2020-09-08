@@ -6,8 +6,6 @@ const dateConventionSettings = {
   month: 'numeric',
   day: 'numeric',
 }
-const date = new Date()
-const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
 
 export function getTransactionEntries() {
   const transactions = []
@@ -16,16 +14,21 @@ export function getTransactionEntries() {
   })
 }
 
-export function postNewTransactionEntry(transaction) {
+export function postNewTransactionEntry({ type, value }) {
+  const date = new Date()
+  const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
+
   const newTransaction = {
-    ...transaction,
+    type,
+    value,
     id: uuidv4(),
     timestamp,
   }
 
   return getTransactionEntries()
     .then((transactions) => [newTransaction, ...transactions])
-    .then((transactions) =>
-      saveLocally('Transactions', transactions).then(() => newTransaction)
-    )
+    .then((transactions) => {
+      saveLocally('Transactions', transactions)
+      return transactions
+    })
 }
