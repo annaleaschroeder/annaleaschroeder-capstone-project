@@ -2,11 +2,12 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import { useForm } from 'react-hook-form'
 
-export default function TransactionFormInput({ addTransactionEntry }) {
+export default function TransactionFormInput({ onSave }) {
   const { register, handleSubmit, errors } = useForm()
+
   const onSubmit = (transaction, event) => {
     event.target.reset()
-    addTransactionEntry(transaction)
+    onSave(transaction)
   }
 
   return (
@@ -19,12 +20,12 @@ export default function TransactionFormInput({ addTransactionEntry }) {
           ref={register({
             required: true,
             min: 1,
-            // pattern: /'^[0-9]+([.][0-9]{1,2})?'/i,
+            pattern: /^[0-9]+\,[0-9]{2}$/,
           })}
         />
         {errors.transactionInput &&
           errors.transactionInput.type === 'required' && (
-            <p>Transaction required. Example: 20.95. </p>
+            <span>Transaction required. Example: 20.95.</span>
           )}
       </InputContainer>
       <LableStyled htmlFor="transactionInput">Euro</LableStyled>
