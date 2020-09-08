@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import { useForm } from 'react-hook-form'
 
-export default function TransactionFormInput({ onSave }) {
+export default function TransactionFormInput({ addTransactionEntry }) {
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = (transaction, event) => {
     event.target.reset()
-    onSave(transaction)
+    addTransactionEntry(transaction)
   }
 
   return (

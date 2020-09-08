@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import TransactionFormInput from './TransactionFormInput'
 import TransactionList from './TransactionList'
-// import { v4 as uuidv4 } from 'uuid'
 import ToggleSwitch from './ToggleSwitch'
 import styled from 'styled-components/macro'
+import useTransactions from './hooks/useTransactions'
 
 // const dateConventionSettings = {
 //   year: 'numeric',
@@ -12,15 +12,14 @@ import styled from 'styled-components/macro'
 // }
 export default function TransactionInputPage({ onSubmit }) {
   const [selected, setSelected] = useState(false)
-
-
+  const { transactions, addTransactionEntry } = useTransactions()
   // const date = new Date()
   // const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
 
   return (
     <>
       <ToggleSwitch selected={selected} toggleSelected={handleToggle} />
-      <TransactionFormInput onSubmit={setTransaction} />
+      <TransactionFormInput onSubmit={addTransactionEntry} />
       <BalanceContainer>
         <BalanceHeadline>
           Monthly Balance: <Balance>2000,00</Balance>
@@ -28,7 +27,7 @@ export default function TransactionInputPage({ onSubmit }) {
       </BalanceContainer>
       <hr />
 
-      <TransactionList timestamp={timestamp} transactions={transaction} />
+      <TransactionList transactions={transactions} />
     </>
   )
 
@@ -36,13 +35,13 @@ export default function TransactionInputPage({ onSubmit }) {
     setSelected(!selected)
   }
 
-//   function addNewTransaction(transactionValue) {
-//     const transaction = transactionValue
-//     setTransaction([
-//       ...transaction,
-//       { timestamp, transactionValue, id: uuidv4() },
-//     ])
-//   }
+  //   function addNewTransaction(transactionValue) {
+  //     const transaction = transactionValue
+  //     setTransaction([
+  //       ...transaction,
+  //       { timestamp, transactionValue, id: uuidv4() },
+  //     ])
+  //   }
 }
 
 const BalanceContainer = styled.div`
@@ -53,3 +52,4 @@ const BalanceHeadline = styled.div`
 `
 const Balance = styled.h5`
   display: inline;
+`

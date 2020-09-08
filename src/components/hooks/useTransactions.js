@@ -1,17 +1,23 @@
 import { useState, useEffect } from 'react'
-import { getTransactionEntries, postTransactionEntries } from '.utils/services'
+import {
+  getTransactionEntries,
+  postNewTransactionEntry,
+} from '../utils/services'
 
 export default function useTransactions() {
   const [transactions, setTransactions] = useState([])
+  const [error, setError] = useState()
 
   useEffect(() => {
     getTransactionEntries().then(setTransactions)
   }, [])
 
   const addTransactionEntry = (transaction) => {
-    postTransactionEntries(transaction).then((newTransaction) =>
-      setTransactions([newTransaction, ...transactions])
-    )
+    postNewTransactionEntry(transaction)
+      .then((newTransaction) =>
+        setTransactions([newTransaction, ...transactions])
+      )
+      .catch(setError)
   }
-  return { transactions, addTransactionEntry }
+  return { transactions, addTransactionEntry, error }
 }
