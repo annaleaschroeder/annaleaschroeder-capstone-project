@@ -11,7 +11,7 @@ export default function ToggleSwitch({ selected, toggleSelected }) {
   return (
     <ToggleWrapper>
       <ToggleContainer onClick={toggleSelected}>
-        <DialogueButton className={selected ? '' : 'disabled'}>
+        <DialogueButton className={selected ? '' : 'changecolor'}>
           {selected ? 'Income' : 'Spending'}
         </DialogueButton>
       </ToggleContainer>
@@ -37,6 +37,7 @@ const ToggleContainer = styled.div`
   user-select: none;
 `
 
+//über Naming schauen, nicht Button verwenen sondern eher Schieberegler
 const DialogueButton = styled.div`
   position: absolute;
   display: flex;
@@ -58,7 +59,7 @@ const DialogueButton = styled.div`
   transition: all 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
   cursor: pointer;
 
-  &.disabled {
+  &.changecolor {
     background-color: #d54062;
     left: 2px;
   }

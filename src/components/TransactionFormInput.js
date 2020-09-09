@@ -1,12 +1,20 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { useForm } from 'react-hook-form'
+import PropTypes from 'prop-types'
+
+TransactionFormInput.propTypes = {
+  onSave: PropTypes.func.isRequired,
+}
 
 export default function TransactionFormInput({ onSave, value, setValue }) {
   const { register, handleSubmit, errors } = useForm()
 
-  const onSubmit = () => {
-    //event.target.reset()
+  const onSubmit = (event) => {
+    //required for testing, otherwise line 15 and 16 are redundand and could be deleted
+    if (event && event.target && typeof event.target.reset === 'function')
+      event.target.reset()
+
     onSave()
   }
 
@@ -33,9 +41,13 @@ export default function TransactionFormInput({ onSave, value, setValue }) {
           errors.transactionInput.type === 'required' && (
             <span>Transaction required. Example: 20,95.</span>
           )}
+        {errors.transactionInput &&
+          errors.transactionInput.type === 'pattern' && (
+            <span>Please use the following format: 12,05</span>
+          )}
       </InputContainer>
       <LableStyled htmlFor="transactionInput">Euro</LableStyled>
-      <CancelButton type="reset">Cancel</CancelButton>
+      {/* <CancelButton type="reset">Cancel</CancelButton> */}
       <AddTransactionButton type="submit">Add Transaction</AddTransactionButton>
     </FormStyled>
   )
@@ -64,11 +76,11 @@ const AddTransactionButton = styled.button`
 const LableStyled = styled.label`
   font-weight: bold;
 `
-const CancelButton = styled.button`
-  display: block;
-  width: 100px;
-  height: auto;
-  padding: 10px;
-  background-color: lightgrey;
-  justify-content: grid-column-end;
-`
+// const CancelButton = styled.button`
+//   display: block;
+//   width: 100px;
+//   height: auto;
+//   padding: 10px;
+//   background-color: lightgrey;
+//   justify-content: grid-column-end;
+// `

@@ -5,6 +5,8 @@
   "dependencies": {
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "jest-styled-components": "^7.0.3",
+    "mutation-observer": "^1.0.3",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

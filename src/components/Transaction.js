@@ -7,5 +7,10 @@ export default function Transaction({ createdAt, newTransaction, type }) {
 
   const value = `${type === 'spending' ? '-' : '+'}${newTransaction}`
 
-  return <section style={style}>{createdAt + ' ' + value}</section>
+  const formattedvalue = value
+    .replace(/^0*/, '')
+    .replace(/^,/, '0,')
+    .replace('.', ',')
+
+  return <section style={style}>{createdAt + ' ' + formattedvalue}</section>
 }
