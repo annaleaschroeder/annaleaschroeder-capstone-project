@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TransactionInputForm renders correctly 1`] = `
+exports[`TransactionForm renders correctly 1`] = `
 .c0 {
   display: grid;
   justify-items: center;

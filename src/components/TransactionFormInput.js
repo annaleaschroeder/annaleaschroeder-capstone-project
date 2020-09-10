@@ -39,7 +39,7 @@ export default function TransactionFormInput({ onSave, value, setValue }) {
         />
         {errors.transactionInput &&
           errors.transactionInput.type === 'required' && (
-            <span>Transaction required. Example: 20,95.</span>
+            <span>Transaction required.</span>
           )}
         {errors.transactionInput &&
           errors.transactionInput.type === 'pattern' && (
