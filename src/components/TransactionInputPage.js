@@ -1,52 +1,57 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TransactionFormInput from './TransactionFormInput'
 import TransactionList from './TransactionList'
-import { v4 as uuidv4 } from 'uuid'
 import ToggleSwitch from './ToggleSwitch'
 import styled from 'styled-components/macro'
+import {
+  getTransactionEntries,
+  postNewTransactionEntry,
+} from './utils/services'
 
-const dateConventionSettings = {
-  year: 'numeric',
-  month: 'numeric',
-  day: 'numeric',
-}
 export default function TransactionInputPage() {
-  const [transaction, setTransaction] = useState([])
   const [selected, setSelected] = useState(false)
+  const [value, setValue] = useState('')
+  const [transactions, setTransactions] = useState([])
 
-  const date = new Date()
-  const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
+  useEffect(() => {
+    getTransactionEntries().then(setTransactions)
+  }, [])
+
+  const sum = transactions.reduce(function (acc, transaction) {
+    return acc + transaction.value * (transaction.type === 'spending' ? -1 : 1)
+  }, 0.0)
 
   return (
     <>
       <ToggleSwitch selected={selected} toggleSelected={handleToggle} />
-      <TransactionFormInput onSubmit={handleSubmit} />
+      <TransactionFormInput
+        value={value}
+        setValue={setValue}
+        onSave={onSaveAddTransactionEntry}
+      />
       <BalanceContainer>
         <BalanceHeadline>
-          Monthly Balance: <Balance>2000,00</Balance>
+          Monthly Balance: <Balance>{sum.toFixed(2).replace('.', ',')}</Balance>
         </BalanceHeadline>
       </BalanceContainer>
       <hr />
 
-      <TransactionList timestamp={timestamp} transactions={transaction} />
+      <TransactionList transactions={transactions} />
     </>
   )
 
   function handleToggle() {
     setSelected(!selected)
   }
+  function onSaveAddTransactionEntry() {
+    const newTransaction = {
+      type: selected ? 'income' : 'spending',
+      value: parseFloat(value.replace(',', '.')),
+    }
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    const form = event.target
-    const input = form.transactionInput
-    const transactionValue = input.value
-    const transactiontype = selected ? 'income' : 'spending'
-    setTransaction([
-      ...transaction,
-      { timestamp, transactionValue, id: uuidv4(), transactiontype },
-    ])
-    form.reset()
+    postNewTransactionEntry(newTransaction).then(setTransactions)
+    setSelected(false)
+    setValue('')
   }
 }
 

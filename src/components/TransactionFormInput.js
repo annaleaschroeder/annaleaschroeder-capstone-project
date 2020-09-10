@@ -1,19 +1,53 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { useForm } from 'react-hook-form'
+import PropTypes from 'prop-types'
 
-export default function TransactionFormInput({ onSubmit, transactionValue }) {
+TransactionFormInput.propTypes = {
+  onSave: PropTypes.func.isRequired,
+}
+
+export default function TransactionFormInput({ onSave, value, setValue }) {
+  const { register, handleSubmit, errors } = useForm()
+
+  const onSubmit = (event) => {
+    //required for testing, otherwise line 15 and 16 are redundand and could be deleted
+    // if (event && event.target && typeof event.target.reset === 'function')
+    //   event.target.reset()
+
+    onSave()
+  }
+
+  const onChange = (event) => {
+    setValue(event.target.value)
+  }
+  
   return (
-    <FormStyled onSubmit={onSubmit}>
+    <FormStyled onSubmit={handleSubmit(onSubmit)}>
       <InputContainer>
         <input
-          transactionvalue={transactionValue}
           id="transactionInput"
           name="transactionInput"
           placeholder="Enter new Transaction"
+          onChange={onChange}
+          value={value}
+          ref={register({
+            required: true,
+            min: 1,
+            pattern: /^[0-9]+,[0-9]{2}$/,
+          })}
         />
+        {errors.transactionInput &&
+          errors.transactionInput.type === 'required' && (
+            <span>Transaction required.</span>
+          )}
+        {errors.transactionInput &&
+          errors.transactionInput.type === 'pattern' && (
+            <span>Please use the following format: 12,05</span>
+          )}
       </InputContainer>
       <LableStyled htmlFor="transactionInput">Euro</LableStyled>
-      <AddTransactionButton>Add Transaction</AddTransactionButton>
+      <AddTransactionButton type="submit">Add Transaction</AddTransactionButton>
     </FormStyled>
   )
 }

@@ -3,8 +3,14 @@
 exports[`Lists all incoming Transactions renders correctly 1`] = `
 <ul>
   <li>
-    <section>
-      undefined undefined
+    <section
+      style={
+        Object {
+          "color": "green",
+        }
+      }
+    >
+      undefined +undefined
     </section>
   </li>
 </ul>

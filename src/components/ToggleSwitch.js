@@ -11,9 +11,9 @@ export default function ToggleSwitch({ selected, toggleSelected }) {
   return (
     <ToggleWrapper>
       <ToggleContainer onClick={toggleSelected}>
-        <DialogueButton className={selected ? '' : 'disabled'}>
+        <DialogueSlider className={selected ? '' : 'changeColor'}>
           {selected ? 'Income' : 'Spending'}
-        </DialogueButton>
+        </DialogueSlider>
       </ToggleContainer>
     </ToggleWrapper>
   )
@@ -23,6 +23,7 @@ const ToggleWrapper = styled.div`
   display: flex;
   justify-content: center;
 `
+
 const ToggleContainer = styled.div`
   position: relative;
   width: 124px;
@@ -35,7 +36,7 @@ const ToggleContainer = styled.div`
   user-select: none;
 `
 
-const DialogueButton = styled.div`
+const DialogueSlider = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
@@ -46,15 +47,13 @@ const DialogueButton = styled.div`
   color: white;
   background-color: #158467;
   padding: 8px 12px;
+  border-radius: 3px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   min-width: 50px;
-  min-width: unset;
-  border-radius: 3px;
   left: 50px;
   transition: all 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
-  cursor: pointer;
 
-  &.disabled {
+  &.changeColor {
     background-color: #d54062;
     left: 2px;
   }

@@ -1,28 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Transaction Input Form renders correctly 1`] = `
+exports[`TransactionForm renders correctly 1`] = `
+.c0 {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 {
+  display: block;
+  width: 200px;
+  height: auto;
+  padding: 10px;
+  background-color: lightgrey;
+  -webkit-box-pack: grid-column-end;
+  -webkit-justify-content: grid-column-end;
+  -ms-flex-pack: grid-column-end;
+  justify-content: grid-column-end;
+}
+
+.c2 {
+  font-weight: bold;
+}
+
 <form
-  className="TransactionFormInput__FormStyled-sc-1g5amkv-0 teDON"
+  className="c0"
   onSubmit={[Function]}
 >
   <div
-    className="TransactionFormInput__InputContainer-sc-1g5amkv-1 cGfFMQ"
+    className="c1"
   >
     <input
       id="transactionInput"
       name="transactionInput"
-      number="15"
+      onChange={[Function]}
       placeholder="Enter new Transaction"
     />
   </div>
   <label
-    className="TransactionFormInput__LableStyled-sc-1g5amkv-3 kSCYJM"
+    className="c2"
     htmlFor="transactionInput"
   >
     Euro
   </label>
   <button
-    className="TransactionFormInput__AddTransactionButton-sc-1g5amkv-2 bxIPyk"
+    className="c3"
+    type="submit"
   >
     Add Transaction
   </button>

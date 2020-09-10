@@ -1,17 +1,16 @@
 import React from 'react'
 import TransactionFormInput from './TransactionFormInput'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
+import 'jest-styled-components'
 
-describe('Transaction Input Form', () => {
-  it('renders correctly', () => {
-    const noOp = () => {}
-    const transactionValue = 15
-    const tree = renderer.create(
-      <TransactionFormInput
-        transactionvalue={transactionValue}
-        onSubmit={noOp}
-      />
-    )
-    expect(tree).toMatchSnapshot()
+window.MutationObserver = require('mutation-observer')
+
+describe('TransactionForm', () => {
+  it('renders the form', () => {
+    const noop = () => {}
+
+    const { getByText } = render(<TransactionFormInput onSave={noop} />)
+    expect(getByText(/Euro/i)).toBeInTheDocument()
+
   })
 })
