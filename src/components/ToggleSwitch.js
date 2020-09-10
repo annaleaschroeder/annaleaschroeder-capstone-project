@@ -41,7 +41,7 @@ const DialogueSlider = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: 80%;
   font-weight: bold;
   line-height: 16px;
   color: white;

@@ -43,7 +43,6 @@ export default function TransactionInputPage() {
   function handleToggle() {
     setSelected(!selected)
   }
-
   function onSaveAddTransactionEntry() {
     const newTransaction = {
       type: selected ? 'income' : 'spending',

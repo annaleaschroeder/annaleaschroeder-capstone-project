@@ -21,7 +21,7 @@ export default function TransactionFormInput({ onSave, value, setValue }) {
   const onChange = (event) => {
     setValue(event.target.value)
   }
-
+  
   return (
     <FormStyled onSubmit={handleSubmit(onSubmit)}>
       <InputContainer>
