@@ -18,9 +18,9 @@ export default function TransactionFormInput({ onSave, value, setValue }) {
     onSave()
   }
 
-  // const onChange = (event) => {
-  //   setValue(event.target.value)
-  // }
+  const onChange = (event) => {
+    setValue(event.target.value)
+  }
 
   return (
     <FormStyled onSubmit={handleSubmit(onSubmit)}>
@@ -29,7 +29,7 @@ export default function TransactionFormInput({ onSave, value, setValue }) {
           id="transactionInput"
           name="transactionInput"
           placeholder="Enter new Transaction"
-          // onChange={onChange}
+          onChange={onChange}
           value={value}
           ref={register({
             required: true,
