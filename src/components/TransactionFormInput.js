@@ -12,8 +12,8 @@ export default function TransactionFormInput({ onSave, value, setValue }) {
 
   const onSubmit = (event) => {
     //required for testing, otherwise line 15 and 16 are redundand and could be deleted
-    if (event && event.target && typeof event.target.reset === 'function')
-      event.target.reset()
+    // if (event && event.target && typeof event.target.reset === 'function')
+    //   event.target.reset()
 
     onSave()
   }
@@ -47,7 +47,6 @@ export default function TransactionFormInput({ onSave, value, setValue }) {
           )}
       </InputContainer>
       <LableStyled htmlFor="transactionInput">Euro</LableStyled>
-      {/* <CancelButton type="reset">Cancel</CancelButton> */}
       <AddTransactionButton type="submit">Add Transaction</AddTransactionButton>
     </FormStyled>
   )
@@ -76,11 +75,3 @@ const AddTransactionButton = styled.button`
 const LableStyled = styled.label`
   font-weight: bold;
 `
-// const CancelButton = styled.button`
-//   display: block;
-//   width: 100px;
-//   height: auto;
-//   padding: 10px;
-//   background-color: lightgrey;
-//   justify-content: grid-column-end;
-// `
