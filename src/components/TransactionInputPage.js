@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TransactionFormInput from './TransactionFormInput'
 import TransactionList from './TransactionList'
 import ToggleSwitch from './ToggleSwitch'
+// import FormInput from './FormInput'
 import styled from 'styled-components/macro'
 import {
   getTransactionEntries,
@@ -11,6 +12,7 @@ import {
 export default function TransactionInputPage() {
   const [selected, setSelected] = useState(false)
   const [value, setValue] = useState('')
+  console.log(value)
   const [transactions, setTransactions] = useState([])
 
   useEffect(() => {
@@ -21,9 +23,12 @@ export default function TransactionInputPage() {
     return acc + transaction.value * (transaction.type === 'spending' ? -1 : 1)
   }, 0.0)
 
+  console.log(value)
+
   return (
     <>
       <ToggleSwitch selected={selected} toggleSelected={handleToggle} />
+      {/* <FormInput /> */}
       <TransactionFormInput
         value={value}
         setValue={setValue}
@@ -43,6 +48,7 @@ export default function TransactionInputPage() {
   function handleToggle() {
     setSelected(!selected)
   }
+
   function onSaveAddTransactionEntry() {
     const newTransaction = {
       type: selected ? 'income' : 'spending',
