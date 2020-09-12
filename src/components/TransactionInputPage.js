@@ -11,53 +11,38 @@ import {
 
 export default function TransactionInputPage() {
   const [selected, setSelected] = useState(false)
-  const [value, setValue] = useState('')
-  console.log(value)
   const [transactions, setTransactions] = useState([])
-
   useEffect(() => {
     getTransactionEntries().then(setTransactions)
   }, [])
-
   const sum = transactions.reduce(function (acc, transaction) {
     return acc + transaction.value * (transaction.type === 'spending' ? -1 : 1)
   }, 0.0)
-
-  console.log(value)
-
   return (
     <>
       <ToggleSwitch selected={selected} toggleSelected={handleToggle} />
       {/* <FormInput /> */}
-      <TransactionFormInput
-        value={value}
-        setValue={setValue}
-        onSave={onSaveAddTransactionEntry}
-      />
+      <TransactionFormInput onSave={onSaveAddTransactionEntry} />
       <BalanceContainer>
         <BalanceHeadline>
           Monthly Balance: <Balance>{sum.toFixed(2).replace('.', ',')}</Balance>
         </BalanceHeadline>
       </BalanceContainer>
       <hr />
-
       <TransactionList transactions={transactions} />
     </>
   )
-
   function handleToggle() {
     setSelected(!selected)
   }
-
-  function onSaveAddTransactionEntry() {
+  function onSaveAddTransactionEntry(newTransactionValue) {
     const newTransaction = {
       type: selected ? 'income' : 'spending',
-      value: parseFloat(value.replace(',', '.')),
+      value: parseFloat(newTransactionValue.replace(',', '.')),
     }
-
+    console.log(newTransaction)
     postNewTransactionEntry(newTransaction).then(setTransactions)
     setSelected(false)
-    setValue('')
   }
 }
 
