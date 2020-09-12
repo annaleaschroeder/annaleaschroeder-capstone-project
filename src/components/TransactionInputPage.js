@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import TransactionFormInput from './TransactionFormInput'
 import TransactionList from './TransactionList'
 import ToggleSwitch from './ToggleSwitch'
-// import FormInput from './FormInput'
+
 import styled from 'styled-components/macro'
 import {
   getTransactionEntries,
@@ -21,7 +21,6 @@ export default function TransactionInputPage() {
   return (
     <>
       <ToggleSwitch selected={selected} toggleSelected={handleToggle} />
-      {/* <FormInput /> */}
       <TransactionFormInput onSave={onSaveAddTransactionEntry} />
       <BalanceContainer>
         <BalanceHeadline>
