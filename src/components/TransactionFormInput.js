@@ -17,8 +17,9 @@ export default function TransactionFormInput({ onSave }) {
           .min(4, 'Too Short!')
           .matches(/^[0-9]+,[0-9]{2}$/, 'Invalid format. Example: 12,00'),
       })}
-      onSubmit={(form) => {
+      onSubmit={(form, { resetForm }) => {
         onSave(form.value)
+        resetForm({ values: '' })
       }}
     >
       {({ errors, touched }) => (
