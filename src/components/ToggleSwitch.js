@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 
 ToggleSwitch.propTypes = {
   selected: PropTypes.bool.isRequired,
-  toggleSelected: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired,
 }
 
-export default function ToggleSwitch({ selected, toggleSelected }) {
+export default function ToggleSwitch({ selected, onToggle }) {
   return (
     <ToggleWrapper>
-      <ToggleContainer onClick={toggleSelected}>
+      <ToggleContainer onClick={onToggle}>
         <DialogueSlider className={selected ? '' : 'changeColor'}>
           {selected ? 'Income' : 'Spending'}
         </DialogueSlider>
