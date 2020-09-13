@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 
 ToggleSwitch.propTypes = {
   selected: PropTypes.bool.isRequired,
-  toggleSelected: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired,
 }
 
-export default function ToggleSwitch({ selected, toggleSelected }) {
+export default function ToggleSwitch({ selected, onToggle }) {
   return (
     <ToggleWrapper>
-      <ToggleContainer onClick={toggleSelected}>
+      <ToggleContainer onClick={onToggle}>
         <DialogueSlider className={selected ? '' : 'changeColor'}>
           {selected ? 'Income' : 'Spending'}
         </DialogueSlider>
@@ -26,7 +26,7 @@ const ToggleWrapper = styled.div`
 
 const ToggleContainer = styled.div`
   position: relative;
-  width: 124px;
+  width: 126px;
   height: 36px;
   margin: 10px;
   border-radius: 3px;
@@ -49,9 +49,9 @@ const DialogueSlider = styled.div`
   padding: 8px 12px;
   border-radius: 3px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  min-width: 50px;
+  width: 75px;
   left: 50px;
-  transition: all 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  transition: all 0.5s cubic-bezier(0.9, 0.06, 0.68, 0.19);
 
   &.changeColor {
     background-color: #d54062;

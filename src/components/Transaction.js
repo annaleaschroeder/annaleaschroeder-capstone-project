@@ -5,12 +5,16 @@ export default function Transaction({ createdAt, newTransaction, type }) {
     color: type === 'spending' ? 'red' : 'green',
   }
 
-  const value = `${type === 'spending' ? '-' : '+'}${newTransaction}`
+  const formatCurrency = new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+  }).format(newTransaction)
+  const value = `${type === 'spending' ? '-' : '+'}${formatCurrency}`
 
-  const formattedvalue = value
-    .replace(/^0*/, '')
-    .replace(/^,/, '0,')
-    .replace('.', ',')
+  // const formattedValue = value
+  //   .replace(/^0*/, '')
+  //   .replace(/^,/, '0,')
+  //   .replace('.', ',')
 
-  return <section style={style}>{createdAt + ' ' + formattedvalue}</section>
+  return <section style={style}>{createdAt + ' ' + value}</section>
 }
