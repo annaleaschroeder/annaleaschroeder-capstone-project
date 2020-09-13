@@ -17,13 +17,19 @@ export default function TransactionInputPage() {
   const sum = transactions.reduce(function (acc, transaction) {
     return acc + transaction.value * (transaction.type === 'spending' ? -1 : 1)
   }, 0.0)
+
+  const monthlyBudget = new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+  }).format(sum)
+
   return (
     <>
       <ToggleSwitch selected={selected} onToggle={handleToggle} />
       <TransactionFormInput onSave={onSaveAddTransactionEntry} />
       <BalanceContainer>
         <BalanceHeadline>
-          Monthly Balance: <Balance>{sum.toFixed(2).replace('.', ',')}</Balance>
+          Monthly Balance: <Balance>{monthlyBudget}</Balance>
         </BalanceHeadline>
       </BalanceContainer>
       <hr />
