@@ -16,10 +16,7 @@ export default function TransactionFormInput({ onSave }) {
         value: Yup.string()
           .required('Required')
           .min(4, 'Too Short!')
-          .matches(
-            /^[0-9]+,[0-9]{2}$/,
-            'Invalid format. Example: 12,00 or 1200,34'
-          ),
+          .matches(/^[0-9]+,[0-9]{2}$/, 'Invalid format. Example: 1200,34'),
       })}
       onSubmit={(form, { resetForm }) => {
         onSave(form.value)
@@ -77,10 +74,11 @@ const AddTrxBtn = styled.button`
   grid-column: 2 / 3;
   grid-row: 3 / 4;
   width: min-content;
-  padding: 5px;
+  padding: 7px;
   background: #2d79db;
   border-radius: 5px;
   border: none;
   color: white;
   font-weight: bold;
+  font-size: 75%;
 `

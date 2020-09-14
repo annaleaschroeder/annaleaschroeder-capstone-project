@@ -18,7 +18,6 @@ export default function Transaction({ createdAt, newTransaction, type }) {
       <ValueStyled style={style}>{value}</ValueStyled>
     </StyledTransaction>
   )
-  // <section style={style}>{createdAt + ' ' + value}</section>
 }
 
 const StyledTransaction = styled.section`
@@ -26,7 +25,7 @@ const StyledTransaction = styled.section`
   grid-template-columns: 1fr 2fr;
   border: 2px solid transparent;
   box-shadow: 5px 5px 10px #d5dadd;
-  margin: 20px;
+  margin: 25px 0;
   padding: 5px;
   border-radius: 5px;
   grid-gap: 5px;
