@@ -24,7 +24,7 @@ export default function TransactionInputPage() {
   }).format(sum)
 
   return (
-    <>
+    <PageStyled>
       <ToggleSwitch selected={selected} onToggle={handleToggle} />
       <TransactionFormInput onSave={onSaveAddTransactionEntry} />
       <BalanceContainer>
@@ -34,7 +34,7 @@ export default function TransactionInputPage() {
       </BalanceContainer>
       <hr />
       <TransactionList transactions={transactions} />
-    </>
+    </PageStyled>
   )
   function handleToggle() {
     setSelected(!selected)
@@ -49,6 +49,10 @@ export default function TransactionInputPage() {
     setSelected(false)
   }
 }
+
+const PageStyled = styled.div`
+  margin: 20px;
+`
 
 const BalanceContainer = styled.div`
   display: flex;
