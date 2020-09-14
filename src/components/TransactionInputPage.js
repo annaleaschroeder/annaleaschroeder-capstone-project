@@ -38,10 +38,11 @@ export default function TransactionInputPage() {
   function handleToggle() {
     setSelected(!selected)
   }
-  function onSaveAddTransactionEntry(newTransactionValue) {
+  function onSaveAddTransactionEntry(newTransactionValue, notes) {
     const newTransaction = {
       type: selected ? 'income' : 'spending',
       value: parseFloat(newTransactionValue.replace(',', '.')),
+      notes: notes,
     }
 
     postNewTransactionEntry(newTransaction).then(setTransactions)

@@ -11,15 +11,19 @@ TransactionFormInput.propTypes = {
 export default function TransactionFormInput({ onSave }) {
   return (
     <Formik
-      initialValues={{ value: '' }}
+      initialValues={{ value: '', notes: '' }}
       validationSchema={Yup.object().shape({
         value: Yup.string()
           .required('Required')
           .min(4, 'Too Short!')
           .matches(/^[0-9]+,[0-9]{2}$/, 'Invalid format. Example: 1200,34'),
+        notes: Yup.string()
+          .required('Required')
+          .min(5, 'Too Short')
+          .max(100, 'Too long'),
       })}
       onSubmit={(form, { resetForm }) => {
-        onSave(form.value)
+        onSave(form.value, form.notes)
         resetForm({ values: '' })
       }}
     >
@@ -27,9 +31,17 @@ export default function TransactionFormInput({ onSave }) {
         <FormStyled>
           <Input name="value" placeholder="Enter transaction" />
           {errors.value && touched.value ? (
-            <ErrorMessageStyled>{errors.value}</ErrorMessageStyled>
+            <ErrorMessageInputStyled>{errors.value}</ErrorMessageInputStyled>
           ) : null}
           <LableStyled htmlFor="value">Euro</LableStyled>
+          <Notes
+            type="textarea"
+            name="notes"
+            placeholder="Add notes to transaction"
+          />
+          {errors.notes && touched.notes ? (
+            <ErrorMessageNotesStyled>{errors.notes}</ErrorMessageNotesStyled>
+          ) : null}
           <AddTrxBtn type="submit">Add Transaction</AddTrxBtn>
         </FormStyled>
       )}
@@ -40,14 +52,24 @@ export default function TransactionFormInput({ onSave }) {
 const FormStyled = styled(Form)`
   display: grid;
   margin: 20px 0;
-  grid-template-rows: 1fr 0.5fr 1fr;
+  grid-template-rows: 1fr 0.1fr 1fr 0.1fr 1fr;
   grid-template-columns: 1fr 4fr 1fr;
   grid-gap: 10px;
   position: relative;
 `
+const LableStyled = styled.label`
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  font-weight: bold;
+  font-size: 100%;
+  align-self: end;
+  justify-self: center;
+`
+
 const Input = styled(Field)`
   grid-column: 2 / 3;
-  justify-self: center;
+  grid-row: 1 / 2;
+  align-self: end;
   border: 1px solid black;
   border-radius: 5px;
   padding: 0 10px;
@@ -55,25 +77,36 @@ const Input = styled(Field)`
   height: 30px;
   background: none;
 `
-const ErrorMessageStyled = styled.div`
+const ErrorMessageInputStyled = styled.div`
   color: red;
   font-size: 80%;
   grid-column: 2 / 3;
   grid-row: 2/ 3;
 `
 
-const LableStyled = styled.label`
-  grid-column: 3 / 4;
-  font-weight: bold;
-  font-size: 100%;
-  padding-top: 7px;
-  justify-self: center;
+const Notes = styled(Field)`
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  align-self: end;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0 10px;
+  width: 100%;
+  height: 30px;
+  background: none;
+`
+
+const ErrorMessageNotesStyled = styled.div`
+  color: red;
+  font-size: 80%;
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
 `
 
 const AddTrxBtn = styled.button`
   justify-self: center;
   grid-column: 2 / 3;
-  grid-row: 3 / 4;
+  grid-row: 5 / 6;
   width: min-content;
   padding: 7px;
   background: #2d79db;
