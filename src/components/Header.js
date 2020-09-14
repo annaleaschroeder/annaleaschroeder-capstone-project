@@ -37,7 +37,7 @@ export default function Header({ date }) {
 const HeaderStyled = styled.header`
   width: 100%;
   z-index: 200;
-  background-color: whitesmoke;
+  background-color: #2d79db;
   padding: 10px;
   text-align: center;
 `
@@ -47,10 +47,12 @@ const Headline = styled.h1`
   margin: 0;
   font-size: 200%;
   display: block;
+  color: white;
 `
 const SubHeadline = styled.h2`
   text-align: center;
   margin: 0;
   font-size: 150%;
   display: block;
+  color: white;
 `

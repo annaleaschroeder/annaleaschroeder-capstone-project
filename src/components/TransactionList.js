@@ -1,11 +1,13 @@
 import React from 'react'
 import Transaction from './Transaction'
+import styled from 'styled-components/macro'
+
 
 export default function TransactionList({ transactions }) {
   console.log(transactions)
 
   return (
-    <ul>
+    <StyledList>
       {transactions.map(({ timestamp, value, id, type }) => (
         <li key={id}>
           <Transaction
@@ -15,6 +17,11 @@ export default function TransactionList({ transactions }) {
           />
         </li>
       ))}
-    </ul>
+    </StyledList>
   )
 }
+
+const StyledList = styled.ul`
+  list-style: none;
+  padding-left: 0;
+`

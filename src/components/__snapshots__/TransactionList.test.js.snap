@@ -1,16 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Lists all incoming Transactions renders correctly 1`] = `
-<ul>
+<ul
+  className="TransactionList__StyledList-jnjq96-0 gyknmh"
+>
   <li>
     <section
-      style={
-        Object {
-          "color": "green",
-        }
-      }
+      className="Transaction__StyledTransaction-mzvon9-0 kKeyrJ"
     >
-      undefined +undefined
+      <span
+        className="Transaction__TimestampStyled-mzvon9-1 kAJVCk"
+      />
+      <span
+        className="Transaction__ValueStyled-mzvon9-2 dPNLxJ"
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        +€NaN
+      </span>
     </section>
   </li>
 </ul>

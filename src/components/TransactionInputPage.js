@@ -24,17 +24,16 @@ export default function TransactionInputPage() {
   }).format(sum)
 
   return (
-    <>
+    <PageStyled>
       <ToggleSwitch selected={selected} onToggle={handleToggle} />
       <TransactionFormInput onSave={onSaveAddTransactionEntry} />
       <BalanceContainer>
-        <BalanceHeadline>
-          Monthly Balance: <Balance>{monthlyBudget}</Balance>
-        </BalanceHeadline>
+        <BalanceHeadline>Monthly Balance:</BalanceHeadline>
+        <Balance>{monthlyBudget}</Balance>
       </BalanceContainer>
       <hr />
       <TransactionList transactions={transactions} />
-    </>
+    </PageStyled>
   )
   function handleToggle() {
     setSelected(!selected)
@@ -50,12 +49,20 @@ export default function TransactionInputPage() {
   }
 }
 
+const PageStyled = styled.div`
+  margin: 20px;
+`
+
 const BalanceContainer = styled.div`
   display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 `
 const BalanceHeadline = styled.div`
   display: inline;
+  font-weight: bold;
 `
-const Balance = styled.h5`
+const Balance = styled.div`
   display: inline;
+  font-weight: bold;
 `

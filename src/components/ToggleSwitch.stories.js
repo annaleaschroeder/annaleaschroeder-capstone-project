@@ -8,5 +8,5 @@ export default {
 
 const Template = (args) => <ToggleSwitch {...args} />
 
-export const ToggleButton = Template.bind({})
+export const ToggleButton = Template.bind()
 ToggleButton.args = {}
