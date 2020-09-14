@@ -67,6 +67,7 @@ const LableStyled = styled.label`
   font-weight: bold;
   font-size: 100%;
   padding-top: 7px;
+  justify-self: center;
 `
 
 const AddTrxBtn = styled.button`

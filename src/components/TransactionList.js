@@ -1,6 +1,8 @@
 import React from 'react'
 import Transaction from './Transaction'
 import styled from 'styled-components/macro'
+
+
 export default function TransactionList({ transactions }) {
   console.log(transactions)
 
