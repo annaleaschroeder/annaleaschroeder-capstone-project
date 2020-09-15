@@ -11,7 +11,7 @@ TransactionFormInput.propTypes = {
 export default function TransactionFormInput({ onSave }) {
   return (
     <Formik
-      initialValues={{ value: '', notes: '' }}
+      initialValues={{ value: '', notes: '', tag: 'Food and Household' }}
       validationSchema={Yup.object().shape({
         value: Yup.string()
           .required('Required')
@@ -21,9 +21,11 @@ export default function TransactionFormInput({ onSave }) {
           .required('Required')
           .min(5, 'Too Short')
           .max(100, 'Too long'),
+        tag: Yup.string().required('Required'),
       })}
       onSubmit={(form, { resetForm }) => {
-        onSave(form.value, form.notes)
+        onSave(form.value, form.notes, form.tag)
+        console.log(form.tag)
         resetForm({ values: '' })
       }}
     >
@@ -34,6 +36,20 @@ export default function TransactionFormInput({ onSave }) {
             <ErrorMessageInputStyled>{errors.value}</ErrorMessageInputStyled>
           ) : null}
           <LableStyled htmlFor="value">Euro</LableStyled>
+          <DropDown name="tag" component="select">
+            <OptionsStlyed value="Food and Household">
+              Food and Household
+            </OptionsStlyed>
+            <option value="Leisure">Leisure</option>
+            <option value="FixedCosts">Fixed Costs</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+            <option value="Earnings">Earnings</option>
+          </DropDown>
+
+          {errors.tag && touched.tag ? (
+            <ErrorDropDownStyled>{errors.tag}</ErrorDropDownStyled>
+          ) : null}
           <Notes
             type="textarea"
             name="notes"
@@ -52,7 +68,7 @@ export default function TransactionFormInput({ onSave }) {
 const FormStyled = styled(Form)`
   display: grid;
   margin: 20px 0;
-  grid-template-rows: 1fr 0.1fr 1fr 0.1fr 1fr;
+  grid-template-rows: 1fr 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr;
   grid-template-columns: 1fr 4fr 1fr;
   grid-gap: 10px;
   position: relative;
@@ -76,17 +92,48 @@ const Input = styled(Field)`
   width: 100%;
   height: 30px;
   background: none;
+  box-shadow: 5px 5px 10px #e4e7eb;
 `
+
 const ErrorMessageInputStyled = styled.div`
   color: red;
   font-size: 80%;
   grid-column: 2 / 3;
-  grid-row: 2/ 3;
+  grid-row: 2 / 3;
+`
+const DropDown = styled(Field)`
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  box-shadow: 5px 5px 10px #e4e7eb;
+  display: block;
+  font-size: 90%;
+  line-height: 1;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+
+  border-radius: 5px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+`
+
+const OptionsStlyed = styled.option`
+  justify-self: center;
+`
+
+const ErrorDropDownStyled = styled.div`
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+  color: red;
+  font-size: 80%;
 `
 
 const Notes = styled(Field)`
   grid-column: 2 / 3;
-  grid-row: 3 / 4;
+  grid-row: 5 / 6;
   align-self: end;
   border: 1px solid black;
   border-radius: 5px;
@@ -94,22 +141,28 @@ const Notes = styled(Field)`
   width: 100%;
   height: 30px;
   background: none;
+  box-shadow: 5px 5px 10px #e4e7eb;
 `
 
 const ErrorMessageNotesStyled = styled.div`
   color: red;
   font-size: 80%;
   grid-column: 2 / 3;
-  grid-row: 4 / 5;
+  grid-row: 6 / 7;
 `
 
 const AddTrxBtn = styled.button`
   justify-self: center;
   grid-column: 2 / 3;
-  grid-row: 5 / 6;
+  grid-row: 7 / 8;
   width: min-content;
   padding: 7px;
-  background: #2d79db;
+  background: linear-gradient(
+    90deg,
+    rgba(45, 121, 219, 1) 0%,
+    rgba(72, 150, 250, 1) 100%
+  );
+  box-shadow: 5px 5px 10px #e4e7eb;
   border-radius: 5px;
   border: none;
   color: white;

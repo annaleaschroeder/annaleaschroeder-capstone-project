@@ -37,7 +37,11 @@ export default function Header({ date }) {
 const HeaderStyled = styled.header`
   width: 100%;
   z-index: 200;
-  background-color: #2d79db;
+  background: linear-gradient(
+    90deg,
+    rgba(45, 121, 219, 1) 0%,
+    rgba(72, 150, 250, 1) 100%
+  );
   padding: 10px;
   text-align: center;
 `
