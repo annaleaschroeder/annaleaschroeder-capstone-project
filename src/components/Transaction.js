@@ -1,5 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+Transaction.propTypes = {
+  createdAt: PropTypes.string.isRequired,
+  newTransaction: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
+  notes: PropTypes.string,
+  tag: PropTypes.string.isRequired,
+}
 
 export default function Transaction({
   createdAt,
@@ -82,7 +91,7 @@ const TagStyled = styled.div`
   text-align: center;
   word-break: keep-all;
   width: min-content;
-  padding: 0px 5px;
+  padding: 0 5px;
 `
 
 const ValueStyled = styled.span`

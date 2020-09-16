@@ -22,7 +22,6 @@ export default function TransactionFormInput({ onSave }) {
       })}
       onSubmit={(form, { resetForm }) => {
         onSave(form.value, form.notes, form.tag)
-        console.log(form.tag)
         resetForm({ values: '' })
       }}
     >
@@ -34,7 +33,7 @@ export default function TransactionFormInput({ onSave }) {
           ) : null}
           <LableStyled htmlFor="value">Euro</LableStyled>
           <DropDown name="tag" component="select">
-            <option value="" selcted hiddens>
+            <option value="" selcted hidden>
               -- Choose a tag --
             </option>
             <option value="Food">Food</option>
