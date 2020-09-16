@@ -14,13 +14,15 @@ export function getTransactionEntries() {
   })
 }
 
-export function postNewTransactionEntry({ type, value }) {
+export function postNewTransactionEntry({ type, value, notes, tag }) {
   const date = new Date()
   const timestamp = date.toLocaleDateString('de-DE', dateConventionSettings)
 
   const newTransaction = {
     type,
     value,
+    tag,
+    notes,
     id: uuidv4(),
     timestamp,
   }
