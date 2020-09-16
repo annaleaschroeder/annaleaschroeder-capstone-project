@@ -11,7 +11,7 @@ TransactionFormInput.propTypes = {
 export default function TransactionFormInput({ onSave }) {
   return (
     <Formik
-      initialValues={{ value: '', notes: '', tag: 'Food and Household' }}
+      initialValues={{ value: '', notes: '', tag: '' }}
       validationSchema={Yup.object().shape({
         value: Yup.string()
           .required('Required')
@@ -37,11 +37,12 @@ export default function TransactionFormInput({ onSave }) {
           ) : null}
           <LableStyled htmlFor="value">Euro</LableStyled>
           <DropDown name="tag" component="select">
-            <OptionsStlyed value="Food and Household">
-              Food and Household
-            </OptionsStlyed>
+            <option value="" selcted hiddens>
+              -- Choose a tag --
+            </option>
+            <option value="Food">Food</option>
             <option value="Leisure">Leisure</option>
-            <option value="FixedCosts">Fixed Costs</option>
+            <option value="Fixed Costs">Fixed Costs</option>
             <option value="Transportation">Transportation</option>
             <option value="Miscellaneous">Miscellaneous</option>
             <option value="Earnings">Earnings</option>
@@ -106,25 +107,24 @@ const DropDown = styled(Field)`
   grid-row: 3 / 4;
   box-shadow: 5px 5px 10px #e4e7eb;
   display: block;
-  font-size: 90%;
-  line-height: 1;
+  font-size: 16px;
+  line-height: 1.5;
   width: 100%;
   max-width: 100%;
-  box-sizing: border-box;
   margin: 0;
-  border: 1px solid #aaa;
-
+  border: 1px solid black;
   border-radius: 5px;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
+  -moz-padding-start: calc(20px - 3px);
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
 `
 
-const OptionsStlyed = styled.option`
-  justify-self: center;
-`
-
-const ErrorDropDownStyled = styled.div`
+const ErrorDropDownStyled = styled.span`
   grid-column: 2 / 3;
   grid-row: 4 / 5;
   color: red;
@@ -157,11 +157,7 @@ const AddTrxBtn = styled.button`
   grid-row: 7 / 8;
   width: min-content;
   padding: 7px;
-  background: linear-gradient(
-    90deg,
-    rgba(45, 121, 219, 1) 0%,
-    rgba(72, 150, 250, 1) 100%
-  );
+  background: var(--blue-main);
   box-shadow: 5px 5px 10px #e4e7eb;
   border-radius: 5px;
   border: none;
