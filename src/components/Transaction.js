@@ -25,7 +25,7 @@ export default function Transaction({
         ? 'var(--tag-transportation)'
         : tag === 'Leisure'
         ? 'var(--tag-leisure)'
-        : tag === 'Fixed Costs'
+        : tag === 'FixedCosts'
         ? 'var(--tag-fixed-cost)'
         : tag === 'Miscellaneous'
         ? 'var(--tag-misc)'
@@ -61,33 +61,34 @@ const StyledTransaction = styled.section`
   margin: 25px 0;
   padding: 5px;
   border-radius: 5px;
-  grid-gap: 5px;
   word-break: break-all;
+  line-height: 1.5;
 `
 const TimestampStyled = styled.span`
   grid-column: 1 / 2;
-  line-height: 2;
+  padding: 5px;
 `
 
 const TagContainer = styled.span`
   grid-column: 2 / 3;
-  line-height: 2;
-  justify-self: center;
+  padding-top: 2px;
 `
 
 const TagStyled = styled.div`
   display: block;
   color: white;
   border: 1px solid darkgrey;
+  border-radius: 5px;
   text-align: center;
-  word-break: normal;
+  word-break: keep-all;
   width: min-content;
+  padding: 0px 5px;
 `
 
 const ValueStyled = styled.span`
   grid-column: 3 / 4;
   justify-self: end;
-  line-height: 2;
+  padding: 5px;
 `
 
 const NotesStyled = styled.p`
@@ -95,4 +96,5 @@ const NotesStyled = styled.p`
   grid-column: 1 / span 3;
   text-align: left;
   word-break: break-all;
+  padding: 5px;
 `

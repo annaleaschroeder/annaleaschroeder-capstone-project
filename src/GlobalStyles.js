@@ -24,7 +24,6 @@ body {
     --tag-transportation: #F2CB9B;
     --tag-leisure: #F2BDBD;
     --tag-fixed-cost: #038C8C;
-    --tag-misc: #F2E7FB;
-
+    --tag-misc: #c0dded;
 }
 `

@@ -17,10 +17,7 @@ export default function TransactionFormInput({ onSave }) {
           .required('Required')
           .min(4, 'Too Short!')
           .matches(/^[0-9]+,[0-9]{2}$/, 'Invalid format. Example: 1200,34'),
-        notes: Yup.string()
-          .required('Required')
-          .min(5, 'Too Short')
-          .max(100, 'Too long'),
+        notes: Yup.string().max(100, 'Too long'),
         tag: Yup.string().required('Required'),
       })}
       onSubmit={(form, { resetForm }) => {
@@ -42,7 +39,7 @@ export default function TransactionFormInput({ onSave }) {
             </option>
             <option value="Food">Food</option>
             <option value="Leisure">Leisure</option>
-            <option value="Fixed Costs">Fixed Costs</option>
+            <option value="FixedCosts">FixedCosts</option>
             <option value="Transportation">Transportation</option>
             <option value="Miscellaneous">Miscellaneous</option>
             <option value="Earnings">Earnings</option>
