@@ -24,8 +24,34 @@ export default function Transaction({
         : 'var(--green-transaction)',
   }
 
-  const tagBackground = {
-    background:
+  // function tagIcon(tag) {
+  //   return tag === 'Transportation' ? (
+  //     <img src="transportation.svg" alt="Transportation" />
+  //   ) : (
+  //     <p>Hello</p>
+  //   )
+  // }
+  const tagBorder = {
+    'border-color':
+      tag === 'Leisure'
+        ? 'var(--tag-leisure)'
+        : tag === 'Food'
+        ? 'var(--tag-food)'
+        : tag === 'Transportation'
+        ? 'var(--tag-transportation)'
+        : tag === 'Leisure'
+        ? 'var(--tag-leisure)'
+        : tag === 'FixedCosts'
+        ? 'var(--tag-fixed-cost)'
+        : tag === 'Miscellaneous'
+        ? 'var(--tag-misc)'
+        : tag === 'Earnings'
+        ? 'var(--tag-earnings)'
+        : 'white',
+  }
+
+  const tagFontColor = {
+    color:
       tag === 'Leisure'
         ? 'var(--tag-leisure)'
         : tag === 'Food'
@@ -53,7 +79,7 @@ export default function Transaction({
     <StyledTransaction>
       <TimestampStyled>{createdAt}</TimestampStyled>
       <TagContainer>
-        <TagStyled style={tagBackground}>{tag}</TagStyled>
+        <TagStyled style={(tagBorder, tagFontColor)}>{tag}</TagStyled>
       </TagContainer>
       <ValueStyled style={style}>{value}</ValueStyled>
       <NotesStyled>{notes}</NotesStyled>
@@ -85,9 +111,9 @@ const TagContainer = styled.span`
 
 const TagStyled = styled.div`
   display: block;
-  color: white;
-  border: 1px solid darkgrey;
-  border-radius: 5px;
+  color: black;
+  border: 2px solid;
+  border-radius: 20px;
   text-align: center;
   word-break: keep-all;
   width: min-content;

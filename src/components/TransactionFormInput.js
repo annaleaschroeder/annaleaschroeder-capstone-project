@@ -108,6 +108,7 @@ const DropDown = styled(Field)`
   width: 100%;
   max-width: 100%;
   margin: 0;
+  text-indent: 5px;
   border: 1px solid black;
   border-radius: 5px;
   -moz-appearance: none;
