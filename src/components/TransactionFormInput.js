@@ -15,8 +15,8 @@ export default function TransactionFormInput({ onSave }) {
       validationSchema={Yup.object().shape({
         value: Yup.string()
           .required('Required')
-          .min(4, 'Too Short!')
-          .matches(/^[0-9]+,[0-9]{2}$/, 'Invalid format. Example: 1200,34'),
+          .min(4, 'Please enter Euro and cent values, separated by a comma!')
+          .matches(/^[0-9]+,[0-9]{2}$/, 'Invalid format. Examples: 1200,34'),
         notes: Yup.string().max(100, 'Too long'),
         tag: Yup.string().required('Required'),
       })}
@@ -27,7 +27,7 @@ export default function TransactionFormInput({ onSave }) {
     >
       {({ errors, touched }) => (
         <FormStyled>
-          <Input name="value" placeholder="Enter transaction" />
+          <Input name="value" placeholder="Enter transaction. Format: 20,00" />
           {errors.value && touched.value ? (
             <ErrorMessageInputStyled>{errors.value}</ErrorMessageInputStyled>
           ) : null}

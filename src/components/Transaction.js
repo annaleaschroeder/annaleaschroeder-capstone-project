@@ -118,6 +118,7 @@ const TagStyled = styled.div`
   word-break: keep-all;
   width: min-content;
   padding: 0 5px;
+  font-size: 90%;
 `
 
 const ValueStyled = styled.span`
