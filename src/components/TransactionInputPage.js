@@ -51,6 +51,7 @@ export default function TransactionInputPage() {
   }
 }
 
+
 const PageStyled = styled.div`
   margin: 20px;
 `

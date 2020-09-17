@@ -19,11 +19,11 @@ body {
     --green-transaction: green; 
     --toggle-income: #d54062;
     --toggle-spending: #158467;
-    --tag-earnings: #026873;
-    --tag-food: #F28888;
-    --tag-transportation: #F2CB9B;
-    --tag-leisure: #F2BDBD;
-    --tag-fixed-cost: #038C8C;
-    --tag-misc: #c0dded;
+    --tag-earnings: #313D29;
+    --tag-food: #EE964B;
+    --tag-transportation: #F2CB40;
+    --tag-leisure: #2DC8C8;
+    --tag-fixed-cost: #2598A7;
+    --tag-misc: #19647E;
 }
 `
