@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import TransactionFormInput from './TransactionFormInput'
-import TransactionList from './TransactionList'
-import ToggleSwitch from './ToggleSwitch'
+import TransactionList from '../TransactionList'
 import styled from 'styled-components/macro'
-import {
-  getTransactionEntries,
-  postNewTransactionEntry,
-} from './utils/services'
+import { getTransactionEntries } from '../utils/services'
 
-export default function TransactionInputPage() {
-  const [selected, setSelected] = useState(false)
+export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
+
   useEffect(() => {
     getTransactionEntries().then(setTransactions)
   }, [])
+
   const sum = transactions.reduce(function (acc, transaction) {
     return acc + transaction.value * (transaction.type === 'spending' ? -1 : 1)
   }, 0.0)
@@ -25,8 +21,14 @@ export default function TransactionInputPage() {
 
   return (
     <PageStyled>
-      <ToggleSwitch selected={selected} onToggle={handleToggle} />
-      <TransactionFormInput onSave={onSaveAddTransactionEntry} />
+      <a href="/add-new-transaction">
+        <button>
+          <span aria-label="Arrow" role="img">
+            ➕
+          </span>
+          Add new Transaction
+        </button>
+      </a>
       <BalanceContainer>
         <BalanceHeadline>Monthly Balance:</BalanceHeadline>
         <Balance>{monthlyBudget}</Balance>
@@ -35,22 +37,7 @@ export default function TransactionInputPage() {
       <TransactionList transactions={transactions} />
     </PageStyled>
   )
-  function handleToggle() {
-    setSelected(!selected)
-  }
-  function onSaveAddTransactionEntry(newTransactionValue, notes, tag) {
-    const newTransaction = {
-      type: selected ? 'income' : 'spending',
-      value: parseFloat(newTransactionValue.replace(',', '.')),
-      notes: notes,
-      tag: tag,
-    }
-
-    postNewTransactionEntry(newTransaction).then(setTransactions)
-    setSelected(false)
-  }
 }
-
 
 const PageStyled = styled.div`
   margin: 20px;
