@@ -1,12 +1,23 @@
 import React from 'react'
 import Header from './components/Header'
-import TransactionInputPage from './components/TransactionInputPage'
+import TransactionOverviewPage from './components/pages/TransactionOverviewPage'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import AddTransactionPage from './components/pages/AddTransactionPage'
 
 function App() {
   return (
     <div>
       <Header date={new Date()} />
-      <TransactionInputPage />
+      <Router>
+        <Switch>
+          <Route path="/add-new-transaction">
+            <AddTransactionPage />
+          </Route>
+          <Route path="/">
+            <TransactionOverviewPage />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   )
 }

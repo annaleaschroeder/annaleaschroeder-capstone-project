@@ -55,7 +55,10 @@ export default function TransactionFormInput({ onSave }) {
           {errors.notes && touched.notes ? (
             <ErrorMessageNotesStyled>{errors.notes}</ErrorMessageNotesStyled>
           ) : null}
+
           <AddTrxBtn type="submit">Add Transaction</AddTrxBtn>
+
+          <CancelBtn type="reset">Cancel</CancelBtn>
         </FormStyled>
       )}
     </Formik>
@@ -149,7 +152,7 @@ const ErrorMessageNotesStyled = styled.div`
 `
 
 const AddTrxBtn = styled.button`
-  justify-self: center;
+  justify-self: end;
   grid-column: 2 / 3;
   grid-row: 7 / 8;
   width: min-content;
@@ -161,4 +164,16 @@ const AddTrxBtn = styled.button`
   color: white;
   font-weight: bold;
   font-size: 75%;
+`
+
+const CancelBtn = styled.button`
+  grid-column: 2 / 3;
+  grid-row: 7 / 8;
+  width: min-content;
+  height: min-content;
+  font-size: 70%;
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
 `
