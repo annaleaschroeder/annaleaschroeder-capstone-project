@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import DeleteButton from './DeleteButton'
 import PropTypes from 'prop-types'
@@ -18,6 +18,13 @@ export default function Transaction({
   notes,
   tag,
 }) {
+  const [isNotesSectionVisible, setIsNotesSectionVisible] = useState(false)
+  const detailStyle = {
+    height: isNotesSectionVisible ? 'fit-content' : 0,
+    transition: 'all 1s ease-in-out',
+    overflow: 'hidden',
+  }
+
   const style = {
     color:
       type === 'spending'
@@ -72,16 +79,21 @@ export default function Transaction({
   return (
     <>
       <TimestampStyled>{createdAt}</TimestampStyled>
-      <StyledTransaction>
+      <StyledTransaction onClick={toggleNotes}>
         <DeleteButton />
         <TagContainer>
           <TagStyled style={(tagBorder, tagFontColor)}>{tag}</TagStyled>
         </TagContainer>
         <ValueStyled style={style}>{value}</ValueStyled>
-        <NotesStyled>{notes}</NotesStyled>
+        {isNotesSectionVisible ? (
+          <NotesSection style={detailStyle}>{notes}</NotesSection>
+        ) : null}
       </StyledTransaction>
     </>
   )
+  function toggleNotes() {
+    setIsNotesSectionVisible(!isNotesSectionVisible)
+  }
 }
 
 const TimestampStyled = styled.span`
@@ -91,7 +103,7 @@ const TimestampStyled = styled.span`
 const StyledTransaction = styled.section`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto;
+  grid-template-rows: auto auto;
   position: relative;
   border: 2px solid transparent;
   box-shadow: 5px 5px 10px #d5dadd;
@@ -105,6 +117,7 @@ const StyledTransaction = styled.section`
 
 const TagContainer = styled.span`
   grid-column: 1 / 2;
+  grid-row: 1 / 2;
   padding-top: 2px;
 `
 
@@ -122,14 +135,16 @@ const TagStyled = styled.div`
 
 const ValueStyled = styled.span`
   grid-column: 2 / 3;
+  grid-row: 1 / 2;
   justify-self: end;
   padding: 5px;
 `
 
-const NotesStyled = styled.p`
+const NotesSection = styled.p`
   grid-row: 2 / 3;
   grid-column: 1 / span 3;
   text-align: left;
   word-break: break-all;
   padding: 5px;
+  height: fit-content;
 `
