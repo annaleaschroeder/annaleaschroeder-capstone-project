@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import DeleteButton from './DeleteButton'
 import PropTypes from 'prop-types'
 
 Transaction.propTypes = {
@@ -24,13 +25,6 @@ export default function Transaction({
         : 'var(--green-transaction)',
   }
 
-  // function tagIcon(tag) {
-  //   return tag === 'Transportation' ? (
-  //     <img src="transportation.svg" alt="Transportation" />
-  //   ) : (
-  //     <p>Hello</p>
-  //   )
-  // }
   const tagBorder = {
     'border-color':
       tag === 'Leisure'
@@ -76,36 +70,41 @@ export default function Transaction({
   const value = `${type === 'spending' ? '-' : '+'}${formatCurrency}`
 
   return (
-    <StyledTransaction>
+    <>
       <TimestampStyled>{createdAt}</TimestampStyled>
-      <TagContainer>
-        <TagStyled style={(tagBorder, tagFontColor)}>{tag}</TagStyled>
-      </TagContainer>
-      <ValueStyled style={style}>{value}</ValueStyled>
-      <NotesStyled>{notes}</NotesStyled>
-    </StyledTransaction>
+      <StyledTransaction>
+        <DeleteButton />
+        <TagContainer>
+          <TagStyled style={(tagBorder, tagFontColor)}>{tag}</TagStyled>
+        </TagContainer>
+        <ValueStyled style={style}>{value}</ValueStyled>
+        <NotesStyled>{notes}</NotesStyled>
+      </StyledTransaction>
+    </>
   )
 }
 
+const TimestampStyled = styled.span`
+  font-weight: bold;
+`
+
 const StyledTransaction = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: auto;
+  position: relative;
   border: 2px solid transparent;
   box-shadow: 5px 5px 10px #d5dadd;
-  margin: 25px 0;
+  margin-bottom: 20px;
+  margin-right: 15px;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 20px;
   word-break: break-all;
   line-height: 1.5;
 `
-const TimestampStyled = styled.span`
-  grid-column: 1 / 2;
-  padding: 5px;
-`
 
 const TagContainer = styled.span`
-  grid-column: 2 / 3;
+  grid-column: 1 / 2;
   padding-top: 2px;
 `
 
@@ -122,7 +121,7 @@ const TagStyled = styled.div`
 `
 
 const ValueStyled = styled.span`
-  grid-column: 3 / 4;
+  grid-column: 2 / 3;
   justify-self: end;
   padding: 5px;
 `
