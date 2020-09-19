@@ -2,22 +2,25 @@ import React, { useState, useEffect } from 'react'
 import TransactionList from '../TransactionList'
 import styled from 'styled-components/macro'
 import { getTransactionEntries } from '../utils/services'
+import { monthlyBudget } from '../common/changeTransactionArray'
+import { saveLocally } from '../utils/localStorage'
 
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
 
   useEffect(() => {
     getTransactionEntries().then(setTransactions)
-  }, [])
+  }, [transactions])
 
-  const sum = transactions.reduce(function (acc, transaction) {
-    return acc + transaction.value * (transaction.type === 'spending' ? -1 : 1)
-  }, 0.0)
+  function deleteTransaction(transactions, id) {
+    const index = transactions.findIndex((transaction) => {
+      return transaction.id === id
+    })
 
-  const monthlyBudget = new Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: 'EUR',
-  }).format(sum)
+    transactions.splice(index, 1)
+    saveLocally('Transactions', transactions)
+    return setTransactions(transactions)
+  }
 
   return (
     <PageStyled>
@@ -31,10 +34,13 @@ export default function TransactionOverviewPage() {
       </a>
       <BalanceContainer>
         <BalanceHeadline>Monthly Balance:</BalanceHeadline>
-        <Balance>{monthlyBudget}</Balance>
+        <Balance>{monthlyBudget(transactions)}</Balance>
       </BalanceContainer>
       <hr />
-      <TransactionList transactions={transactions} />
+      <TransactionList
+        deleteTransaction={deleteTransaction}
+        transactions={transactions}
+      />
     </PageStyled>
   )
 }

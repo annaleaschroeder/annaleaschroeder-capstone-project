@@ -17,11 +17,12 @@ export default function Transaction({
   type,
   notes,
   tag,
+  deleteTransaction,
 }) {
   const [isNotesSectionVisible, setIsNotesSectionVisible] = useState(false)
   const detailStyle = {
     height: isNotesSectionVisible ? 'fit-content' : 0,
-    transition: 'all 1s ease-in-out',
+    transition: 'all 7s cubic-bezier(0.65, 0.5, 0.6, 1) 5s',
     overflow: 'hidden',
   }
 
@@ -80,7 +81,7 @@ export default function Transaction({
     <>
       <TimestampStyled>{createdAt}</TimestampStyled>
       <StyledTransaction onClick={toggleNotes}>
-        <DeleteButton />
+        <DeleteButton onClick={deleteTransaction} />
         <TagContainer>
           <TagStyled style={(tagBorder, tagFontColor)}>{tag}</TagStyled>
         </TagContainer>
@@ -91,7 +92,8 @@ export default function Transaction({
       </StyledTransaction>
     </>
   )
-  function toggleNotes() {
+  function toggleNotes(event) {
+    event.stopPropagation()
     setIsNotesSectionVisible(!isNotesSectionVisible)
   }
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function DeleteButton() {
+export default function DeleteButton({ onClick }) {
   return (
-    <StyledButton>
+    <StyledButton onClick={onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="24"
@@ -23,8 +23,9 @@ const StyledButton = styled.button`
   right: -30px;
   width: fit-content;
   height: fit-content;
-  padding: 5px;
+  padding: 4px;
   background-color: white;
+  box-shadow: 2px 2px 5px #d5dadd;
   border-radius: 50%;
   border: 1px dotted lightgrey;
 `
