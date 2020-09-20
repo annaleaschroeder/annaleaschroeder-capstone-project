@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 import {
   getTransactionEntries,
   deleteTransactionEntry,
+  editTransactionEntry,
 } from '../utils/services'
 import { monthlyBudget } from '../common/updateMonthlyBudget'
 
@@ -36,6 +37,7 @@ export default function TransactionOverviewPage() {
       <TransactionList
         deleteTransaction={deleteTransaction}
         transactions={transactions}
+        editTransaction={editTransactionEntry}
       />
     </PageStyled>
   )

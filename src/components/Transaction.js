@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import DeleteButton from './DeleteButton'
+import EditButton from './EditButton'
 import PropTypes from 'prop-types'
 
 Transaction.propTypes = {
@@ -18,6 +19,7 @@ export default function Transaction({
   notes,
   tag,
   deleteTransaction,
+  editTransaction,
 }) {
   const [notesSectionVisible, setNotesSectionVisible] = useState(false)
 
@@ -32,6 +34,7 @@ export default function Transaction({
       <TimestampStyled>{createdAt}</TimestampStyled>
       <StyledTransaction onClick={toggleNotes}>
         <DeleteButton onClick={deleteTransaction} />
+        <EditButton onClick={editTransaction} />
         <TagContainer>
           <TagStyled className={tag.toLowerCase()}>{tag}</TagStyled>
         </TagContainer>

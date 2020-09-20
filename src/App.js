@@ -13,6 +13,9 @@ function App() {
           <Route path="/add-new-transaction">
             <AddTransactionPage />
           </Route>
+          {/* <Route path="/transactions/:id">
+            <EditTransactionPage />
+          </Route> */}
           <Route path="/">
             <TransactionOverviewPage />
           </Route>
