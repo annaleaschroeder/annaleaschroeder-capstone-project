@@ -3,26 +3,32 @@ import PropTypes from 'prop-types'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import styled from 'styled-components/macro'
+import { useHistory } from 'react-router-dom'
 
 TransactionFormInput.propTypes = {
   onSave: PropTypes.func.isRequired,
 }
 
 export default function TransactionFormInput({ onSave }) {
+  const history = useHistory()
   return (
     <Formik
       initialValues={{ value: '', notes: '', tag: '' }}
       validationSchema={Yup.object().shape({
         value: Yup.string()
           .required('Required')
-          .min(4, 'Please enter Euro and cent values, separated by a comma!')
-          .matches(/^[0-9]+,[0-9]{2}$/, 'Invalid format. Examples: 1200,34'),
+          .min(1, 'Please enter a value')
+          .matches(
+            /^[0-9]+([.,][0-9]{1,2})?$/,
+            'Invalid format. Examples: 1200,34'
+          ),
         notes: Yup.string().max(100, 'Too long'),
         tag: Yup.string().required('Required'),
       })}
       onSubmit={(form, { resetForm }) => {
         onSave(form.value, form.notes, form.tag)
         resetForm({ values: '' })
+        history.push('/')
       }}
     >
       {({ errors, touched }) => (
@@ -58,7 +64,7 @@ export default function TransactionFormInput({ onSave }) {
 
           <AddTrxBtn type="submit">Add Transaction</AddTrxBtn>
 
-          <CancelBtn type="reset">Cancel</CancelBtn>
+          <CancelBtn type="reset">Reset</CancelBtn>
         </FormStyled>
       )}
     </Formik>
@@ -170,9 +176,9 @@ const CancelBtn = styled.button`
   grid-column: 2 / 3;
   grid-row: 7 / 8;
   width: min-content;
-  height: min-content;
-  font-size: 70%;
-  padding: 5px;
+  font-weight: bold;
+  font-size: 75%;
+  padding: 7px;
   margin-top: 10px;
   border-radius: 5px;
   border: none;

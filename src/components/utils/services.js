@@ -34,3 +34,15 @@ export function postNewTransactionEntry({ type, value, notes, tag }) {
       return transactions
     })
 }
+
+export function deleteTransactionEntry(id) {
+  return getTransactionEntries().then((transactions) => {
+    const index = transactions.findIndex((transaction) => {
+      return transaction.id === id
+    })
+    const newTransactionArray = [...transactions]
+    newTransactionArray.splice(index, 1)
+    saveLocally('Transactions', newTransactionArray)
+    return newTransactionArray
+  })
+}

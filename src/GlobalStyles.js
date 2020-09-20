@@ -25,5 +25,6 @@ body {
     --tag-leisure: #2DC8C8;
     --tag-fixed-cost: #2598A7;
     --tag-misc: #19647E;
+    --grey-shadow: #d5dadd;
 }
 `

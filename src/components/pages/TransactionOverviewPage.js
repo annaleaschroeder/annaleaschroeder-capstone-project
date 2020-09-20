@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import TransactionList from '../TransactionList'
 import styled from 'styled-components/macro'
-import { getTransactionEntries } from '../utils/services'
+import {
+  getTransactionEntries,
+  deleteTransactionEntry,
+} from '../utils/services'
+import { monthlyBudget } from '../common/updateMonthlyBudget'
 
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
@@ -10,14 +14,9 @@ export default function TransactionOverviewPage() {
     getTransactionEntries().then(setTransactions)
   }, [])
 
-  const sum = transactions.reduce(function (acc, transaction) {
-    return acc + transaction.value * (transaction.type === 'spending' ? -1 : 1)
-  }, 0.0)
-
-  const monthlyBudget = new Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: 'EUR',
-  }).format(sum)
+  function deleteTransaction(id) {
+    deleteTransactionEntry(id).then(setTransactions)
+  }
 
   return (
     <PageStyled>
@@ -31,10 +30,13 @@ export default function TransactionOverviewPage() {
       </a>
       <BalanceContainer>
         <BalanceHeadline>Monthly Balance:</BalanceHeadline>
-        <Balance>{monthlyBudget}</Balance>
+        <Balance>{monthlyBudget(transactions)}</Balance>
       </BalanceContainer>
       <hr />
-      <TransactionList transactions={transactions} />
+      <TransactionList
+        deleteTransaction={deleteTransaction}
+        transactions={transactions}
+      />
     </PageStyled>
   )
 }
