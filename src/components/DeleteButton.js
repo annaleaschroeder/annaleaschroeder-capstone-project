@@ -25,7 +25,7 @@ const StyledButton = styled.button`
   height: fit-content;
   padding: 4px;
   background-color: white;
-  box-shadow: 2px 2px 5px #d5dadd;
+  box-shadow: 2px 2px 5px var(--grey-shadow);
   border-radius: 50%;
-  border: 1px dotted lightgrey;
+  border: 1px dotted var(--grey-shadow);
 `

@@ -5,7 +5,7 @@ import {
   getTransactionEntries,
   deleteTransactionEntry,
 } from '../utils/services'
-import { monthlyBudget } from '../common/changeTransactionArray'
+import { monthlyBudget } from '../common/updateMonthlyBudget'
 
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])

@@ -19,57 +19,7 @@ export default function Transaction({
   tag,
   deleteTransaction,
 }) {
-  const [isNotesSectionVisible, setIsNotesSectionVisible] = useState(false)
-  const detailStyle = {
-    height: isNotesSectionVisible ? 'fit-content' : 0,
-    transition: 'all 7s cubic-bezier(0.65, 0.5, 0.6, 1) 5s',
-    overflow: 'hidden',
-  }
-
-  const style = {
-    color:
-      type === 'spending'
-        ? 'var(--red-transaction)'
-        : 'var(--green-transaction)',
-  }
-
-  const tagBorder = {
-    'border-color':
-      tag === 'Leisure'
-        ? 'var(--tag-leisure)'
-        : tag === 'Food'
-        ? 'var(--tag-food)'
-        : tag === 'Transportation'
-        ? 'var(--tag-transportation)'
-        : tag === 'Leisure'
-        ? 'var(--tag-leisure)'
-        : tag === 'FixedCosts'
-        ? 'var(--tag-fixed-cost)'
-        : tag === 'Miscellaneous'
-        ? 'var(--tag-misc)'
-        : tag === 'Earnings'
-        ? 'var(--tag-earnings)'
-        : 'white',
-  }
-
-  const tagFontColor = {
-    color:
-      tag === 'Leisure'
-        ? 'var(--tag-leisure)'
-        : tag === 'Food'
-        ? 'var(--tag-food)'
-        : tag === 'Transportation'
-        ? 'var(--tag-transportation)'
-        : tag === 'Leisure'
-        ? 'var(--tag-leisure)'
-        : tag === 'FixedCosts'
-        ? 'var(--tag-fixed-cost)'
-        : tag === 'Miscellaneous'
-        ? 'var(--tag-misc)'
-        : tag === 'Earnings'
-        ? 'var(--tag-earnings)'
-        : 'white',
-  }
+  const [notesSectionVisible, setNotesSectionVisible] = useState(false)
 
   const formatCurrency = new Intl.NumberFormat('de-DE', {
     style: 'currency',
@@ -83,18 +33,20 @@ export default function Transaction({
       <StyledTransaction onClick={toggleNotes}>
         <DeleteButton onClick={deleteTransaction} />
         <TagContainer>
-          <TagStyled style={(tagBorder, tagFontColor)}>{tag}</TagStyled>
+          <TagStyled className={tag.toLowerCase()}>{tag}</TagStyled>
         </TagContainer>
-        <ValueStyled style={style}>{value}</ValueStyled>
-        {isNotesSectionVisible ? (
-          <NotesSection style={detailStyle}>{notes}</NotesSection>
+        <ValueStyled className={type}>{value}</ValueStyled>
+        {notesSectionVisible ? (
+          <NotesSection className={notesSectionVisible ? 'shownotes' : ''}>
+            {notes}
+          </NotesSection>
         ) : null}
       </StyledTransaction>
     </>
   )
   function toggleNotes(event) {
     event.stopPropagation()
-    setIsNotesSectionVisible(!isNotesSectionVisible)
+    setNotesSectionVisible(!notesSectionVisible)
   }
 }
 
@@ -108,7 +60,7 @@ const StyledTransaction = styled.section`
   grid-template-rows: auto auto;
   position: relative;
   border: 2px solid transparent;
-  box-shadow: 5px 5px 10px #d5dadd;
+  box-shadow: 5px 5px 10px var(--grey-shadow);
   margin-bottom: 20px;
   margin-right: 15px;
   padding: 5px;
@@ -133,6 +85,36 @@ const TagStyled = styled.div`
   width: min-content;
   padding: 0 5px;
   font-size: 90%;
+
+  &.leisure {
+    color: var(--tag-leisure);
+    border-color: var(--tag-leisure);
+  }
+
+  &.food {
+    color: var(--tag-food);
+    border-color: var(--tag-food);
+  }
+
+  &.fixedcosts {
+    color: var(--tag-fixed-cost);
+    border-color: var(--tag-fixed-cost);
+  }
+
+  &.miscellaneous {
+    color: var(--tag-misc);
+    border-color: var(--tag-misc);
+  }
+
+  &.transportation {
+    color: var(--tag-transportation);
+    border-color: var(--tag-transportation);
+  }
+
+  &.earnings {
+    color: var(--tag-earnings);
+    border-color: var(--tag-earnings);
+  }
 `
 
 const ValueStyled = styled.span`
@@ -140,6 +122,14 @@ const ValueStyled = styled.span`
   grid-row: 1 / 2;
   justify-self: end;
   padding: 5px;
+
+  &.spending {
+    color: var(--red-transaction);
+  }
+
+  &.income {
+    color: var(--green-transaction);
+  }
 `
 
 const NotesSection = styled.p`
@@ -148,5 +138,11 @@ const NotesSection = styled.p`
   text-align: left;
   word-break: break-all;
   padding: 5px;
-  height: fit-content;
+  height: 0;
+  transition: all 7s cubic-bezier(0.65, 0.5, 0.6, 1) 5s;
+  overflow: hidden;
+
+  &.shownotes {
+    height: fit-content;
+  }
 `
