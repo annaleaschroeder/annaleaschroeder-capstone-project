@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import TransactionList from '../TransactionList'
 import styled from 'styled-components/macro'
-import { getTransactionEntries } from '../utils/services'
+import {
+  getTransactionEntries,
+  deleteTransactionEntry,
+} from '../utils/services'
 import { monthlyBudget } from '../common/changeTransactionArray'
-import { saveLocally } from '../utils/localStorage'
 
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
 
   useEffect(() => {
     getTransactionEntries().then(setTransactions)
-  }, [transactions])
+  }, [])
 
-  function deleteTransaction(transactions, id) {
-    const index = transactions.findIndex((transaction) => {
-      return transaction.id === id
-    })
-    transactions.splice(index, 1)
-    saveLocally('Transactions', transactions)
-    return setTransactions(transactions)
+  function deleteTransaction(id) {
+    deleteTransactionEntry(id).then(setTransactions)
   }
 
   return (

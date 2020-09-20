@@ -15,7 +15,7 @@ export default function TransactionList({ deleteTransaction, transactions }) {
           <Transaction
             deleteTransaction={(event) => {
               event.stopPropagation()
-              deleteTransaction(transactions, id)
+              deleteTransaction(id)
             }}
             createdAt={timestamp}
             newTransaction={value}
