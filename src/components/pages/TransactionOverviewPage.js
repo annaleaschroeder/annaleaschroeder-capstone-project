@@ -16,7 +16,6 @@ export default function TransactionOverviewPage() {
     const index = transactions.findIndex((transaction) => {
       return transaction.id === id
     })
-
     transactions.splice(index, 1)
     saveLocally('Transactions', transactions)
     return setTransactions(transactions)
