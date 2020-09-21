@@ -5,7 +5,7 @@ import {
   getTransactionEntries,
   deleteTransactionEntry,
 } from '../utils/services'
-import { monthlyBudget } from '../common/updateMonthlyBudget'
+import { updateMonthlyBudget } from '../common/updateMonthlyBudget'
 
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
@@ -30,7 +30,7 @@ export default function TransactionOverviewPage() {
       </a>
       <BalanceContainer>
         <BalanceHeadline>Monthly Balance:</BalanceHeadline>
-        <Balance>{monthlyBudget(transactions)}</Balance>
+        <Balance>{updateMonthlyBudget(transactions)}</Balance>
       </BalanceContainer>
       <hr />
       <TransactionList

@@ -1,6 +1,5 @@
 import React from 'react'
 import Transaction from './Transaction'
-import { isAsyncMode } from 'react-is'
 
 export default {
   title: 'Transaction',
