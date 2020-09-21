@@ -76,7 +76,7 @@ const FormStyled = styled(Form)`
   margin: 20px 0;
   grid-template-rows: 1fr 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 20px;
   position: relative;
 `
 const LableStyled = styled.label`
