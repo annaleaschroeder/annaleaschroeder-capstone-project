@@ -114,7 +114,7 @@ const TagStyled = styled.div`
     border-color: var(--tag-transportation);
   }
 
-  &.earnings {
+  &.income {
     color: var(--tag-earnings);
     border-color: var(--tag-earnings);
   }

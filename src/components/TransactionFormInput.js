@@ -18,10 +18,7 @@ export default function TransactionFormInput({ onSave }) {
         value: Yup.string()
           .required('Required')
           .min(1, 'Please enter a value')
-          .matches(
-            /^[0-9]+([.,][0-9]{1,2})?$/,
-            'Invalid format. Examples: 1200,34'
-          ),
+          .matches(/^[0-9]+([.,][0-9]{1,2})?$/, 'Invalid format.'),
         notes: Yup.string().max(100, 'Too long'),
         tag: Yup.string().required('Required'),
       })}
@@ -33,7 +30,7 @@ export default function TransactionFormInput({ onSave }) {
     >
       {({ errors, touched }) => (
         <FormStyled>
-          <Input name="value" placeholder="Enter transaction. Format: 20,00" />
+          <Input name="value" placeholder="Enter transaction." />
           {errors.value && touched.value ? (
             <ErrorMessageInputStyled>{errors.value}</ErrorMessageInputStyled>
           ) : null}
@@ -181,5 +178,6 @@ const CancelBtn = styled.button`
   padding: 7px;
   margin-top: 10px;
   border-radius: 5px;
+  box-shadow: 5px 5px 10px var(--grey-shadow);
   border: none;
 `

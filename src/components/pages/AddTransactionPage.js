@@ -62,6 +62,9 @@ const ReturnRoute = styled.a`
 
 const ReturnButton = styled.button`
   display: block;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px var(--grey-shadow);
 `
 const ReturnImage = styled.svg`
   justify-items: center;
