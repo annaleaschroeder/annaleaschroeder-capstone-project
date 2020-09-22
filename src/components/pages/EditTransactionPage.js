@@ -1,40 +1,56 @@
-// import React, { useState } from 'react'
-// import TransactionFormInput from '../TransactionFormInput'
-// import ToggleSwitch from '../ToggleSwitch'
-// import styled from 'styled-components/macro'
-// import { postNewTransactionEntry,  } from '../utils/services'
+import React, { useState, useEffect } from 'react'
+import TransactionFormInput from '../TransactionFormInput'
+import ToggleSwitch from '../ToggleSwitch'
+import styled from 'styled-components/macro'
+import { editTransactionEntry, getTransactionEntry } from '../utils/services'
+import { useParams } from 'react-router-dom'
 
-// export default function AddTransactionPage() {
-//   const [selected, setSelected] = useState(false)
+export default function EditTransactionPage() {
+  const { id } = useParams()
+  const [selected, setSelected] = useState(false)
+  const [transaction, setTransaction] = useState({})
 
-//   return (
-//     <PageStyled>
-//       <ToggleSwitch selected={selected} onToggle={handleToggle} />
-//       <TransactionFormInput onSave={onSaveAddTransactionEntry} />
-//       <a href="/">
-//         <button>Return to budget overview</button>
-//       </a>
-//     </PageStyled>
-//   )
-//   function handleToggle() {
-//     setSelected(!selected)
-//   }
+  useEffect(() => {
+    getTransactionEntry(id).then(setTransaction)
+  }, [id])
 
-//   function onSaveEditTransactionEntry()
+  useEffect(() => {
+    setSelected(transaction.type === 'income')
+  }, [transaction])
 
-//   // function onSaveAddTransactionEntry(newTransactionValue, notes, tag) {
-//   //   const newTransaction = {
-//   //     type: selected ? 'income' : 'spending',
-//   //     value: parseFloat(newTransactionValue.replace(',', '.')),
-//   //     notes: notes,
-//   //     tag: tag,
-//   //   }
+  return (
+    <PageStyled>
+      <ToggleSwitch selected={selected} onToggle={handleToggle} />
+      <TransactionFormInput
+        onSave={onEditUpdateTransactionEntry}
+        notes={transaction.notes}
+        value={transaction.value?.toFixed(2).replace('.', ',')}
+        tag={transaction.tag}
+      />
+      <a href="/">
+        <button>Return to budget overview</button>
+      </a>
+    </PageStyled>
+  )
+  function handleToggle() {
+    setSelected(!selected)
+  }
 
-//     // postNewTransactionEntry(newTransaction)
-//     // setSelected(false)
-//   }
-// }
+  function onEditUpdateTransactionEntry(value, notes, tag) {
+    const updatedTransaction = {
+      type: selected ? 'income' : 'spending',
+      value: parseFloat(String(value).replace(',', '.')),
+      notes: notes,
+      tag: tag,
+      id: transaction.id,
+      timestamp: transaction.timestamp,
+    }
 
-// const PageStyled = styled.div`
-//   margin: 20px;
-// `
+    editTransactionEntry(transaction.id, updatedTransaction)
+    setSelected(false)
+  }
+}
+
+const PageStyled = styled.div`
+  margin: 20px;
+`

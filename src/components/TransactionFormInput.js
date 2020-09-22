@@ -9,11 +9,18 @@ TransactionFormInput.propTypes = {
   onSave: PropTypes.func.isRequired,
 }
 
-export default function TransactionFormInput({ onSave }) {
+export default function TransactionFormInput({
+  onSave,
+  notes = '',
+  value = '',
+  tag = '',
+}) {
   const history = useHistory()
+
   return (
     <Formik
-      initialValues={{ value: '', notes: '', tag: '' }}
+      initialValues={{ value, notes, tag }}
+      enableReinitialize={true}
       validationSchema={Yup.object().shape({
         value: Yup.string()
           .required('Required')
@@ -24,46 +31,55 @@ export default function TransactionFormInput({ onSave }) {
       })}
       onSubmit={(form, { resetForm }) => {
         onSave(form.value, form.notes, form.tag)
-        resetForm({ values: '' })
+        resetForm({
+          values: { value, notes, tag },
+        })
         history.push('/')
       }}
     >
-      {({ errors, touched }) => (
-        <FormStyled>
-          <Input name="value" placeholder="Enter transaction." />
-          {errors.value && touched.value ? (
-            <ErrorMessageInputStyled>{errors.value}</ErrorMessageInputStyled>
-          ) : null}
-          <LableStyled htmlFor="value">Euro</LableStyled>
-          <DropDown name="tag" component="select">
-            <option value="" selcted hidden>
-              -- Choose a tag --
-            </option>
-            <option value="Food">Food</option>
-            <option value="Leisure">Leisure</option>
-            <option value="FixedCosts">FixedCosts</option>
-            <option value="Transportation">Transportation</option>
-            <option value="Miscellaneous">Miscellaneous</option>
-            <option value="Earnings">Earnings</option>
-          </DropDown>
+      {({ values, errors, touched }) => {
+        return (
+          <FormStyled>
+            <Input
+              name="value"
+              placeholder="Enter transaction."
+              value={values.value}
+            />
+            {errors.value && touched.value ? (
+              <ErrorMessageInputStyled>{errors.value}</ErrorMessageInputStyled>
+            ) : null}
+            <LableStyled htmlFor="value">Euro</LableStyled>
+            <DropDown name="tag" component="select" value={values.tag}>
+              <option value="" hidden>
+                -- Choose a tag --
+              </option>
+              <option value="Food">Food</option>
+              <option value="Leisure">Leisure</option>
+              <option value="FixedCosts">FixedCosts</option>
+              <option value="Transportation">Transportation</option>
+              <option value="Miscellaneous">Miscellaneous</option>
+              <option value="Earnings">Earnings</option>
+            </DropDown>
 
-          {errors.tag && touched.tag ? (
-            <ErrorDropDownStyled>{errors.tag}</ErrorDropDownStyled>
-          ) : null}
-          <Notes
-            type="textarea"
-            name="notes"
-            placeholder="Add notes to transaction"
-          />
-          {errors.notes && touched.notes ? (
-            <ErrorMessageNotesStyled>{errors.notes}</ErrorMessageNotesStyled>
-          ) : null}
+            {errors.tag && touched.tag ? (
+              <ErrorDropDownStyled>{errors.tag}</ErrorDropDownStyled>
+            ) : null}
+            <Notes
+              type="textarea"
+              name="notes"
+              placeholder="Add notes to transaction"
+              value={values.notes}
+            />
+            {errors.notes && touched.notes ? (
+              <ErrorMessageNotesStyled>{errors.notes}</ErrorMessageNotesStyled>
+            ) : null}
 
-          <AddTrxBtn type="submit">Add Transaction</AddTrxBtn>
+            <AddTrxBtn type="submit">Save</AddTrxBtn>
 
-          <CancelBtn type="reset">Reset</CancelBtn>
-        </FormStyled>
-      )}
+            <CancelBtn type="reset">Reset</CancelBtn>
+          </FormStyled>
+        )
+      }}
     </Formik>
   )
 }

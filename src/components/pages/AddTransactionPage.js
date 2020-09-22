@@ -63,6 +63,7 @@ const ReturnRoute = styled.a`
 const ReturnButton = styled.button`
   display: block;
   border: none;
+  background-color: white;
   border-radius: 5px;
   box-shadow: 5px 5px 10px var(--grey-shadow);
 `

@@ -23,15 +23,12 @@ export default function TransactionList({
                 deleteTransaction(id)
               }
             }}
-            editTransaction={(event) => {
-              event.stopPropagation()
-              editTransaction(id)
-            }}
             createdAt={timestamp}
             newTransaction={value}
             type={type}
             notes={notes}
             tag={tag}
+            id={id}
           />
         </li>
       ))}

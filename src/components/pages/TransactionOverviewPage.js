@@ -19,6 +19,10 @@ export default function TransactionOverviewPage() {
     deleteTransactionEntry(id).then(setTransactions)
   }
 
+  function editTransaction(id, updatedTransaction) {
+    editTransactionEntry(id, updatedTransaction).then(setTransactions)
+  }
+
   return (
     <PageStyled>
       <AddTrxRoute href="/add-new-transaction">
@@ -43,7 +47,7 @@ export default function TransactionOverviewPage() {
       <TransactionList
         deleteTransaction={deleteTransaction}
         transactions={transactions}
-        editTransaction={editTransactionEntry}
+        editTransaction={editTransaction}
       />
     </PageStyled>
   )

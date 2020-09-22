@@ -21,11 +21,10 @@ const StyledButton = styled.button`
   position: absolute;
   top: 30px;
   right: -30px;
-  width: fit-content;
-  height: fit-content;
+  width: auto;
+  height: auto;
   padding: 4px;
   background-color: white;
   box-shadow: 2px 2px 5px var(--grey-shadow);
-  border-radius: 50%;
   border: 1px dotted var(--grey-shadow);
 `

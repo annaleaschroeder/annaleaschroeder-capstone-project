@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import DeleteButton from './DeleteButton'
 import EditButton from './EditButton'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 Transaction.propTypes = {
@@ -18,10 +19,11 @@ export default function Transaction({
   type,
   notes,
   tag,
+  id,
   deleteTransaction,
-  editTransaction,
 }) {
   const [notesSectionVisible, setNotesSectionVisible] = useState(false)
+  const history = useHistory()
 
   const formatCurrency = new Intl.NumberFormat('de-DE', {
     style: 'currency',
@@ -34,7 +36,7 @@ export default function Transaction({
       <TimestampStyled>{createdAt}</TimestampStyled>
       <StyledTransaction onClick={toggleNotes}>
         <DeleteButton onClick={deleteTransaction} />
-        <EditButton onClick={editTransaction} />
+        <EditButton onClick={transitionToEditTransactionPage} />
         <TagContainer>
           <TagStyled className={tag.toLowerCase()}>{tag}</TagStyled>
         </TagContainer>
@@ -51,6 +53,10 @@ export default function Transaction({
     event.stopPropagation()
     setNotesSectionVisible(!notesSectionVisible)
   }
+  function transitionToEditTransactionPage(event) {
+    event.stopPropagation()
+    history.push(`/transactions/${id}`)
+  }
 }
 
 const TimestampStyled = styled.span`
@@ -64,7 +70,7 @@ const StyledTransaction = styled.section`
   position: relative;
   border: 2px solid transparent;
   box-shadow: 5px 5px 10px var(--grey-shadow);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   margin-right: 15px;
   padding: 5px;
   border-radius: 20px;
@@ -114,7 +120,7 @@ const TagStyled = styled.div`
     border-color: var(--tag-transportation);
   }
 
-  &.income {
+  &.earnings {
     color: var(--tag-earnings);
     border-color: var(--tag-earnings);
   }
