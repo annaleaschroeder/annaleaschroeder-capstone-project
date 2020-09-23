@@ -9,64 +9,77 @@ TransactionFormInput.propTypes = {
   onSave: PropTypes.func.isRequired,
 }
 
-export default function TransactionFormInput({ onSave }) {
+export default function TransactionFormInput({
+  onSave,
+  notes = '',
+  value = '',
+  tag = '',
+}) {
   const history = useHistory()
+
   return (
     <Formik
-      initialValues={{ value: '', notes: '', tag: '' }}
+      initialValues={{ value, notes, tag }}
+      enableReinitialize={true}
       validationSchema={Yup.object().shape({
         value: Yup.string()
           .required('Required')
           .min(1, 'Please enter a value')
-          .matches(
-            /^[0-9]+([.,][0-9]{1,2})?$/,
-            'Invalid format. Examples: 1200,34'
-          ),
+          .matches(/^[0-9]+([.,][0-9]{1,2})?$/, 'Invalid format.'),
         notes: Yup.string().max(100, 'Too long'),
         tag: Yup.string().required('Required'),
       })}
       onSubmit={(form, { resetForm }) => {
         onSave(form.value, form.notes, form.tag)
-        resetForm({ values: '' })
+        resetForm({
+          values: { value, notes, tag },
+        })
         history.push('/')
       }}
     >
-      {({ errors, touched }) => (
-        <FormStyled>
-          <Input name="value" placeholder="Enter transaction. Format: 20,00" />
-          {errors.value && touched.value ? (
-            <ErrorMessageInputStyled>{errors.value}</ErrorMessageInputStyled>
-          ) : null}
-          <LableStyled htmlFor="value">Euro</LableStyled>
-          <DropDown name="tag" component="select">
-            <option value="" selcted hidden>
-              -- Choose a tag --
-            </option>
-            <option value="Food">Food</option>
-            <option value="Leisure">Leisure</option>
-            <option value="FixedCosts">FixedCosts</option>
-            <option value="Transportation">Transportation</option>
-            <option value="Miscellaneous">Miscellaneous</option>
-            <option value="Earnings">Earnings</option>
-          </DropDown>
+      {({ values, errors, touched }) => {
+        return (
+          <FormStyled>
+            <Input
+              name="value"
+              placeholder="Enter transaction."
+              value={values.value}
+            />
+            {errors.value && touched.value ? (
+              <ErrorMessageInput>{errors.value}</ErrorMessageInput>
+            ) : null}
+            <LableStyled htmlFor="value">Euro</LableStyled>
+            <DropDown name="tag" component="select" value={values.tag}>
+              <option value="" hidden>
+                -- Choose a tag --
+              </option>
+              <option value="Food">Food</option>
+              <option value="Leisure">Leisure</option>
+              <option value="FixedCosts">FixedCosts</option>
+              <option value="Transportation">Transportation</option>
+              <option value="Miscellaneous">Miscellaneous</option>
+              <option value="Earnings">Earnings</option>
+            </DropDown>
 
-          {errors.tag && touched.tag ? (
-            <ErrorDropDownStyled>{errors.tag}</ErrorDropDownStyled>
-          ) : null}
-          <Notes
-            type="textarea"
-            name="notes"
-            placeholder="Add notes to transaction"
-          />
-          {errors.notes && touched.notes ? (
-            <ErrorMessageNotesStyled>{errors.notes}</ErrorMessageNotesStyled>
-          ) : null}
+            {errors.tag && touched.tag ? (
+              <ErrorDropDown>{errors.tag}</ErrorDropDown>
+            ) : null}
+            <Notes
+              type="textarea"
+              name="notes"
+              placeholder="Add notes to transaction"
+              value={values.notes}
+            />
+            {errors.notes && touched.notes ? (
+              <ErrorMessageNotes>{errors.notes}</ErrorMessageNotes>
+            ) : null}
 
-          <AddTrxBtn type="submit">Add Transaction</AddTrxBtn>
+            <AddTrxBtn type="submit">Save</AddTrxBtn>
 
-          <CancelBtn type="reset">Reset</CancelBtn>
-        </FormStyled>
-      )}
+            <CancelBtn type="reset">Reset</CancelBtn>
+          </FormStyled>
+        )
+      }}
     </Formik>
   )
 }
@@ -76,7 +89,7 @@ const FormStyled = styled(Form)`
   margin: 20px 0;
   grid-template-rows: 1fr 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 20px;
   position: relative;
 `
 const LableStyled = styled.label`
@@ -101,7 +114,7 @@ const Input = styled(Field)`
   box-shadow: 5px 5px 10px #e4e7eb;
 `
 
-const ErrorMessageInputStyled = styled.div`
+const ErrorMessageInput = styled.div`
   color: red;
   font-size: 80%;
   grid-column: 2 / 3;
@@ -130,7 +143,7 @@ const DropDown = styled(Field)`
   background-size: 0.65em auto, 100%;
 `
 
-const ErrorDropDownStyled = styled.span`
+const ErrorDropDown = styled.span`
   grid-column: 2 / 3;
   grid-row: 4 / 5;
   color: red;
@@ -150,7 +163,7 @@ const Notes = styled(Field)`
   box-shadow: 5px 5px 10px #e4e7eb;
 `
 
-const ErrorMessageNotesStyled = styled.div`
+const ErrorMessageNotes = styled.div`
   color: red;
   font-size: 80%;
   grid-column: 2 / 3;
@@ -181,5 +194,6 @@ const CancelBtn = styled.button`
   padding: 7px;
   margin-top: 10px;
   border-radius: 5px;
+  box-shadow: 5px 5px 10px var(--grey-shadow);
   border: none;
 `

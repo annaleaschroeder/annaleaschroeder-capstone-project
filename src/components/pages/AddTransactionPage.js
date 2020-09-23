@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TransactionFormInput from '../TransactionFormInput'
 import ToggleSwitch from '../ToggleSwitch'
+import ReturnToOverviewButton from '../ReturnToOverviewButton'
 import styled from 'styled-components/macro'
 import { postNewTransactionEntry } from '../utils/services'
 
@@ -11,9 +12,7 @@ export default function AddTransactionPage() {
     <PageStyled>
       <ToggleSwitch selected={selected} onToggle={handleToggle} />
       <TransactionFormInput onSave={onSaveAddTransactionEntry} />
-      <a href="/">
-        <button>Return to budget overview</button>
-      </a>
+      <ReturnToOverviewButton />
     </PageStyled>
   )
   function handleToggle() {

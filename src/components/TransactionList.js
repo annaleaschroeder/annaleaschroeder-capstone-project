@@ -7,7 +7,11 @@ TransactionList.propTypes = {
   transactions: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
-export default function TransactionList({ deleteTransaction, transactions }) {
+export default function TransactionList({
+  deleteTransaction,
+  transactions,
+  editTransaction,
+}) {
   return (
     <StyledList>
       {transactions.map(({ timestamp, value, id, type, notes, tag }) => (
@@ -15,13 +19,16 @@ export default function TransactionList({ deleteTransaction, transactions }) {
           <Transaction
             deleteTransaction={(event) => {
               event.stopPropagation()
-              deleteTransaction(id)
+              if (window.confirm('Are you sure?')) {
+                deleteTransaction(id)
+              }
             }}
             createdAt={timestamp}
             newTransaction={value}
             type={type}
             notes={notes}
             tag={tag}
+            id={id}
           />
         </li>
       ))}

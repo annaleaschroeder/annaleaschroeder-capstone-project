@@ -4,8 +4,11 @@ import styled from 'styled-components/macro'
 import {
   getTransactionEntries,
   deleteTransactionEntry,
+  editTransactionEntry,
 } from '../utils/services'
-import { updateMonthlyBudget } from '../common/updateMonthlyBudget'
+import { monthlyBudget } from '../common/updateMonthlyBudget'
+import AddTransactionButton from '../AddTransactionButton'
+
 
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
@@ -18,16 +21,13 @@ export default function TransactionOverviewPage() {
     deleteTransactionEntry(id).then(setTransactions)
   }
 
+  function editTransaction(id, updatedTransaction) {
+    editTransactionEntry(id, updatedTransaction).then(setTransactions)
+  }
+
   return (
     <PageStyled>
-      <a href="/add-new-transaction">
-        <button>
-          <span aria-label="Arrow" role="img">
-            ➕
-          </span>
-          Add new Transaction
-        </button>
-      </a>
+      <AddTransactionButton />
       <BalanceContainer>
         <BalanceHeadline>Monthly Balance:</BalanceHeadline>
         <Balance>{updateMonthlyBudget(transactions)}</Balance>
@@ -36,6 +36,7 @@ export default function TransactionOverviewPage() {
       <TransactionList
         deleteTransaction={deleteTransaction}
         transactions={transactions}
+        editTransaction={editTransaction}
       />
     </PageStyled>
   )
@@ -44,7 +45,6 @@ export default function TransactionOverviewPage() {
 const PageStyled = styled.div`
   margin: 20px;
 `
-
 const BalanceContainer = styled.div`
   display: flex;
   justify-content: space-between;

@@ -46,3 +46,24 @@ export function deleteTransactionEntry(id) {
     return newTransactionArray
   })
 }
+
+export function editTransactionEntry(id, updatedTransaction) {
+  return getTransactionEntries().then((transactions) => {
+    const index = transactions.findIndex((transaction) => {
+      return transaction.id === id
+    })
+
+    const newTransactionArray = [...transactions]
+    newTransactionArray[index] = updatedTransaction
+    saveLocally('Transactions', newTransactionArray)
+    return newTransactionArray
+  })
+}
+
+export function getTransactionEntry(id) {
+  return getTransactionEntries().then((transactions) => {
+    return transactions.find((transaction) => {
+      return transaction.id === id
+    })
+  })
+}
