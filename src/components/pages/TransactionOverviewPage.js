@@ -6,9 +6,8 @@ import {
   deleteTransactionEntry,
   editTransactionEntry,
 } from '../utils/services'
-import { monthlyBudget } from '../common/updateMonthlyBudget'
+import { updateMonthlyBudget } from '../common/updateMonthlyBudget'
 import AddTransactionButton from '../buttons/AddTransactionButton'
-
 
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
