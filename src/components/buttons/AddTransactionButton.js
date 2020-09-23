@@ -23,8 +23,10 @@ export default function AddTransactionButton() {
 }
 
 const ButtonContainer = styled.div`
-  height: auto;
+  display: flex;
+  height: fit-content;
   width: auto;
+  justify-content: left;
 `
 
 const AddTrxRoute = styled.a`
