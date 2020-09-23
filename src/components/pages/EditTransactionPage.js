@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TransactionFormInput from '../TransactionFormInput'
 import ToggleSwitch from '../ToggleSwitch'
+import ReturnToOverviewButton from '../ReturnToOverviewButton'
 import styled from 'styled-components/macro'
 import { editTransactionEntry, getTransactionEntry } from '../utils/services'
 import { useParams } from 'react-router-dom'
@@ -27,9 +28,7 @@ export default function EditTransactionPage() {
         value={transaction.value?.toFixed(2).replace('.', ',')}
         tag={transaction.tag}
       />
-      <a href="/">
-        <button>Return to budget overview</button>
-      </a>
+      <ReturnToOverviewButton />
     </PageStyled>
   )
   function handleToggle() {
