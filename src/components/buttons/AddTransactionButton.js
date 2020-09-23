@@ -26,7 +26,7 @@ const ButtonContainer = styled.div`
   display: flex;
   height: fit-content;
   width: auto;
-  justify-content: right;
+  justify-content: left;
 `
 
 const AddTrxRoute = styled.a`
