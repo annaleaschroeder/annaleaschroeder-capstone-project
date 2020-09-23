@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import DeleteButton from './DeleteButton'
-import EditButton from './EditButton'
+import DeleteButton from './buttons/DeleteButton'
+import EditButton from './buttons/EditButton'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 

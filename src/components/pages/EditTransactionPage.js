@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TransactionFormInput from '../TransactionFormInput'
 import ToggleSwitch from '../ToggleSwitch'
-import ReturnToOverviewButton from '../ReturnToOverviewButton'
+import ReturnToOverviewButton from '../buttons/ReturnToOverviewButton'
 import styled from 'styled-components/macro'
 import { editTransactionEntry, getTransactionEntry } from '../utils/services'
 import { useParams } from 'react-router-dom'
