@@ -9,6 +9,7 @@ import {
 import { monthlyBudget } from '../common/updateMonthlyBudget'
 import AddTransactionButton from '../buttons/AddTransactionButton'
 
+
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
 
@@ -29,7 +30,7 @@ export default function TransactionOverviewPage() {
       <AddTransactionButton />
       <BalanceContainer>
         <BalanceHeadline>Monthly Balance:</BalanceHeadline>
-        <Balance>{monthlyBudget(transactions)}</Balance>
+        <Balance>{updateMonthlyBudget(transactions)}</Balance>
       </BalanceContainer>
       <hr />
       <TransactionList
