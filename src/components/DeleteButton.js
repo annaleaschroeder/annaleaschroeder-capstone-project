@@ -28,4 +28,5 @@ const StyledButton = styled.button`
   box-shadow: 2px 2px 5px var(--grey-shadow);
   border-radius: 50%;
   border: 1px dotted var(--grey-shadow);
+  cursor: pointer;
 `

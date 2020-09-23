@@ -27,4 +27,5 @@ const StyledButton = styled.button`
   background-color: white;
   box-shadow: 2px 2px 5px var(--grey-shadow);
   border: 1px dotted var(--grey-shadow);
+  cursor: pointer;
 `

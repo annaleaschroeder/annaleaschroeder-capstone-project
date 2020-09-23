@@ -46,7 +46,7 @@ export default function TransactionFormInput({
               value={values.value}
             />
             {errors.value && touched.value ? (
-              <ErrorMessageInputStyled>{errors.value}</ErrorMessageInputStyled>
+              <ErrorMessageInput>{errors.value}</ErrorMessageInput>
             ) : null}
             <LableStyled htmlFor="value">Euro</LableStyled>
             <DropDown name="tag" component="select" value={values.tag}>
@@ -62,7 +62,7 @@ export default function TransactionFormInput({
             </DropDown>
 
             {errors.tag && touched.tag ? (
-              <ErrorDropDownStyled>{errors.tag}</ErrorDropDownStyled>
+              <ErrorDropDown>{errors.tag}</ErrorDropDown>
             ) : null}
             <Notes
               type="textarea"
@@ -71,7 +71,7 @@ export default function TransactionFormInput({
               value={values.notes}
             />
             {errors.notes && touched.notes ? (
-              <ErrorMessageNotesStyled>{errors.notes}</ErrorMessageNotesStyled>
+              <ErrorMessageNotes>{errors.notes}</ErrorMessageNotes>
             ) : null}
 
             <AddTrxBtn type="submit">Save</AddTrxBtn>
@@ -114,7 +114,7 @@ const Input = styled(Field)`
   box-shadow: 5px 5px 10px #e4e7eb;
 `
 
-const ErrorMessageInputStyled = styled.div`
+const ErrorMessageInput = styled.div`
   color: red;
   font-size: 80%;
   grid-column: 2 / 3;
@@ -143,7 +143,7 @@ const DropDown = styled(Field)`
   background-size: 0.65em auto, 100%;
 `
 
-const ErrorDropDownStyled = styled.span`
+const ErrorDropDown = styled.span`
   grid-column: 2 / 3;
   grid-row: 4 / 5;
   color: red;
@@ -163,7 +163,7 @@ const Notes = styled(Field)`
   box-shadow: 5px 5px 10px #e4e7eb;
 `
 
-const ErrorMessageNotesStyled = styled.div`
+const ErrorMessageNotes = styled.div`
   color: red;
   font-size: 80%;
   grid-column: 2 / 3;
