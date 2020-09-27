@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from './components/header/Header'
-import TransactionOverviewPage from './components/pages/TransactionOverviewPage'
+import Header from './header/Header'
+import TransactionOverviewPage from './pages/TransactionOverviewPage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import AddTransactionPage from './components/pages/AddTransactionPage'
-import EditTransactionPage from './components/pages/EditTransactionPage'
+import AddTransactionPage from './pages/AddTransactionPage'
+import EditTransactionPage from './pages/EditTransactionPage'
 
 function App() {
   return (
