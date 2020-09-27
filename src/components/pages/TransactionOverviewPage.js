@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import TransactionList from '../TransactionList'
+import TransactionList from '../transactionList/TransactionList'
 import styled from 'styled-components/macro'
 import {
   getTransactionEntries,
