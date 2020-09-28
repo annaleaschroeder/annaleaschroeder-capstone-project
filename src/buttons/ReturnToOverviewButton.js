@@ -8,14 +8,13 @@ export default function ReturnToOverviewButton() {
         <ReturnButton>
           <ReturnImage
             xmlns="http://www.w3.org/2000/svg"
-            height="28"
+            height="40"
             viewBox="0 0 24 24"
-            width="28"
+            width="40"
           >
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
           </ReturnImage>
-          <ButtonText>Return</ButtonText>
         </ReturnButton>
       </ReturnRoute>
     </ButtonContainer>
@@ -24,8 +23,7 @@ export default function ReturnToOverviewButton() {
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  justify-content: left;
   height: fit-content;
 `
 
@@ -37,14 +35,10 @@ const ReturnButton = styled.button`
   display: block;
   border: none;
   border-radius: 5px;
-  box-shadow: 5px 5px 10px var(--grey-shadow);
   cursor: pointer;
-`
-const ReturnImage = styled.svg`
-  justify-items: center;
+  background: transparent;
 `
 
-const ButtonText = styled.span`
-  display: block;
-  justify-self: center;
+const ReturnImage = styled.svg`
+  justify-items: center;
 `

@@ -7,11 +7,7 @@ TransactionList.propTypes = {
   transactions: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
-export default function TransactionList({
-  deleteTransaction,
-  transactions,
-  editTransaction,
-}) {
+export default function TransactionList({ deleteTransaction, transactions }) {
   return (
     <StyledList>
       {transactions.map(({ timestamp, value, id, type, notes, tag }) => (

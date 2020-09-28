@@ -26,9 +26,9 @@ const ToggleWrapper = styled.div`
 
 const ToggleContainer = styled.div`
   position: relative;
-  width: 126px;
-  height: 36px;
-  margin: 10px;
+  width: 154px;
+  height: 49px;
+  margin-bottom: 10px;
   border-radius: 3px;
   padding: 2px;
   background-color: #c4c4c4;
@@ -49,8 +49,9 @@ const DialogueSlider = styled.div`
   padding: 8px 12px;
   border-radius: 3px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 75px;
-  left: 50px;
+  width: 80px;
+  height: 45px;
+  left: 72px;
   transition: all 0.5s cubic-bezier(0.9, 0.06, 0.68, 0.19);
 
   &.changeColor {

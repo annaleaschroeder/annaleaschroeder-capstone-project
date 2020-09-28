@@ -10,9 +10,9 @@ export default function AddTransactionPage() {
 
   return (
     <PageStyled>
+      <ReturnToOverviewButton />
       <ToggleSwitch selected={selected} onToggle={handleToggle} />
       <TransactionFormInput onSave={onSaveAddTransactionEntry} />
-      <ReturnToOverviewButton />
     </PageStyled>
   )
 

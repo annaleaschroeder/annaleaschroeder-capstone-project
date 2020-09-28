@@ -26,7 +26,6 @@ export default function TransactionOverviewPage() {
 
   return (
     <PageStyled>
-      <AddTransactionButton />
       <BalanceContainer>
         <BalanceHeadline>Monthly Balance:</BalanceHeadline>
         <Balance>{updateMonthlyBudget(transactions)}</Balance>
@@ -37,6 +36,7 @@ export default function TransactionOverviewPage() {
         transactions={transactions}
         editTransaction={editTransaction}
       />
+      <AddTransactionButton />
     </PageStyled>
   )
 }
@@ -47,7 +47,7 @@ const PageStyled = styled.div`
 const BalanceContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 40px;
 `
 const BalanceHeadline = styled.div`
   display: inline;

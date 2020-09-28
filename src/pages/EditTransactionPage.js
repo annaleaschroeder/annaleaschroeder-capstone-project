@@ -24,6 +24,7 @@ export default function EditTransactionPage() {
 
   return (
     <PageStyled>
+      <ReturnToOverviewButton />
       <ToggleSwitch selected={selected} onToggle={handleToggle} />
       <TransactionFormInput
         onSave={onEditUpdateTransactionEntry}
@@ -31,7 +32,6 @@ export default function EditTransactionPage() {
         value={transaction.value?.toFixed(2).replace('.', ',')}
         tag={transaction.tag}
       />
-      <ReturnToOverviewButton />
     </PageStyled>
   )
   function handleToggle() {

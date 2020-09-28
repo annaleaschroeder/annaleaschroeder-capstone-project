@@ -42,7 +42,7 @@ export default function TransactionFormInput({
           <FormStyled>
             <Input
               name="value"
-              placeholder="Enter transaction."
+              placeholder="Enter transaction"
               value={values.value}
             />
             {errors.value && touched.value ? (
@@ -98,7 +98,7 @@ const LableStyled = styled.label`
   font-weight: bold;
   font-size: 100%;
   align-self: end;
-  justify-self: center;
+  padding-bottom: 15px;
 `
 
 const Input = styled(Field)`
@@ -109,9 +109,12 @@ const Input = styled(Field)`
   border-radius: 5px;
   padding: 0 10px;
   width: 100%;
-  height: 30px;
+  height: 50px;
   background: none;
   box-shadow: 5px 5px 10px #e4e7eb;
+  text-indent: 5px;
+  font-size: 85%;
+  line-height: 1.5;
 `
 
 const ErrorMessageInput = styled.div`
@@ -125,12 +128,13 @@ const DropDown = styled(Field)`
   grid-row: 3 / 4;
   box-shadow: 5px 5px 10px #e4e7eb;
   display: block;
-  font-size: 16px;
+  font-size: 90%;
   line-height: 1.5;
   width: 100%;
+  height: 50px;
   max-width: 100%;
   margin: 0;
-  text-indent: 5px;
+
   border: 1px solid black;
   border-radius: 5px;
   -moz-appearance: none;
@@ -158,9 +162,12 @@ const Notes = styled(Field)`
   border-radius: 5px;
   padding: 0 10px;
   width: 100%;
-  height: 30px;
+  height: 50px;
   background: none;
   box-shadow: 5px 5px 10px #e4e7eb;
+
+  font-size: 85%;
+  line-height: 1.5;
 `
 
 const ErrorMessageNotes = styled.div`
@@ -174,26 +181,30 @@ const AddTrxBtn = styled.button`
   justify-self: end;
   grid-column: 2 / 3;
   grid-row: 7 / 8;
-  width: min-content;
-  padding: 7px;
+  width: 90px;
+  height: 50px;
+  padding: 5px;
+  font-size: 75%;
+  font-weight: bold;
+  color: white;
   background: var(--blue-main);
   box-shadow: 5px 5px 10px #e4e7eb;
   border-radius: 5px;
   border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 75%;
+  margin-top: 10px;
 `
 
 const CancelBtn = styled.button`
   grid-column: 2 / 3;
   grid-row: 7 / 8;
-  width: min-content;
+  justify-self: start;
+  width: 90px;
+  height: 50px;
   font-weight: bold;
   font-size: 75%;
-  padding: 7px;
-  margin-top: 10px;
+  padding: 5px;
   border-radius: 5px;
   box-shadow: 5px 5px 10px var(--grey-shadow);
   border: none;
+  margin-top: 10px;
 `
