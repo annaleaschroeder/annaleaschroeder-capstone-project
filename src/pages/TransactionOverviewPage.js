@@ -5,7 +5,7 @@ import {
   getTransactionEntries,
   deleteTransactionEntry,
   editTransactionEntry,
-} from '../utils/services'
+} from '../services/transactionServices'
 import { updateMonthlyBudget } from '../common/updateMonthlyBudget'
 import AddTransactionButton from '../buttons/AddTransactionButton'
 

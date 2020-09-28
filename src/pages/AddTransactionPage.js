@@ -3,7 +3,7 @@ import TransactionFormInput from '../form/TransactionFormInput'
 import ToggleSwitch from '../toggleSwitch/ToggleSwitch'
 import ReturnToOverviewButton from '../buttons/ReturnToOverviewButton'
 import styled from 'styled-components/macro'
-import { postNewTransactionEntry } from '../utils/services'
+import { postNewTransactionEntry } from '../services/transactionServices'
 
 export default function AddTransactionPage() {
   const [selected, setSelected] = useState(false)

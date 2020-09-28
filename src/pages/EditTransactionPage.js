@@ -3,7 +3,10 @@ import TransactionFormInput from '../form/TransactionFormInput'
 import ToggleSwitch from '../toggleSwitch/ToggleSwitch'
 import ReturnToOverviewButton from '../buttons/ReturnToOverviewButton'
 import styled from 'styled-components/macro'
-import { editTransactionEntry, getTransactionEntry } from '../utils/services'
+import {
+  editTransactionEntry,
+  getTransactionEntry,
+} from '../services/transactionServices'
 import { useParams } from 'react-router-dom'
 
 export default function EditTransactionPage() {
