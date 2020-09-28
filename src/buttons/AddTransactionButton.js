@@ -33,10 +33,6 @@ const ButtonContainer = styled.div`
   justify-items: center;
 `
 
-const AddTrxRoute = styled.a`
-  text-decoration: none;
-`
-
 const AddTrxButton = styled.button`
   display: flex;
   border: none;
@@ -48,6 +44,11 @@ const AddTrxButton = styled.button`
   position: fixed;
   z-index: 10;
   bottom: 40px;
+`
+const AddTrxRoute = styled.a`
+  text-decoration: none;
+  height: auto;
+  width: auto;
 `
 
 const AddImage = styled.svg`
