@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import TransactionFormInput from '../TransactionFormInput'
-import ToggleSwitch from '../ToggleSwitch'
+import TransactionFormInput from '../form/TransactionFormInput'
+import ToggleSwitch from '../toggleSwitch/ToggleSwitch'
 import ReturnToOverviewButton from '../buttons/ReturnToOverviewButton'
 import styled from 'styled-components/macro'
-import { editTransactionEntry, getTransactionEntry } from '../utils/services'
+import {
+  editTransactionEntry,
+  getTransactionEntry,
+} from '../services/transactionServices'
 import { useParams } from 'react-router-dom'
 
 export default function EditTransactionPage() {
@@ -21,6 +24,7 @@ export default function EditTransactionPage() {
 
   return (
     <PageStyled>
+      <ReturnToOverviewButton />
       <ToggleSwitch selected={selected} onToggle={handleToggle} />
       <TransactionFormInput
         onSave={onEditUpdateTransactionEntry}
@@ -28,7 +32,6 @@ export default function EditTransactionPage() {
         value={transaction.value?.toFixed(2).replace('.', ',')}
         tag={transaction.tag}
       />
-      <ReturnToOverviewButton />
     </PageStyled>
   )
   function handleToggle() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Transaction from './Transaction'
+import Transaction from '../singleTransaction/Transaction'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
@@ -7,11 +7,7 @@ TransactionList.propTypes = {
   transactions: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
-export default function TransactionList({
-  deleteTransaction,
-  transactions,
-  editTransaction,
-}) {
+export default function TransactionList({ deleteTransaction, transactions }) {
   return (
     <StyledList>
       {transactions.map(({ timestamp, value, id, type, notes, tag }) => (

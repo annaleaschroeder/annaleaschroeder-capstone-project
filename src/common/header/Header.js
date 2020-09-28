@@ -21,14 +21,14 @@ const month = [
   'December',
 ]
 
-export default function Header({ date }) {
+export default function Header({ date, title }) {
   const year = date.getFullYear()
   const monthNumber = date.getMonth()
   const newMonth = month[monthNumber]
 
   return (
     <HeaderStyled>
-      <Headline>Budget Overview</Headline>
+      <Headline>{title}</Headline>
       <SubHeadline>{newMonth + ' ' + year}</SubHeadline>
     </HeaderStyled>
   )
@@ -38,6 +38,7 @@ const HeaderStyled = styled.header`
   width: 100%;
   z-index: 200;
   background: var(--blue-main);
+  background-size: cover;
   padding: 10px;
   text-align: center;
 `
