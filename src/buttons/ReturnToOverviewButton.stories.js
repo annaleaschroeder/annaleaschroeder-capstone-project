@@ -8,5 +8,5 @@ export default {
 
 const Template = (args) => <ReturnToOverviewButton {...args} />
 
-export const AddTransaction = Template.bind()
-AddTransaction.args = {}
+export const ReturnBtn = Template.bind()
+ReturnBtn.args = {}

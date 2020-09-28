@@ -5,14 +5,11 @@ import Transaction from './Transaction'
 describe('Single Transaction', () => {
   it('Shows a section containing a timestamp (date, month, year) and the transaction value', () => {
     const createdAt = '9.7.2020'
-    const newTransaction = '20,95'
-    const type = 'income'
+    const value = '+ 20,95 €'
+    const type = 'spending'
+    const tag = 'food'
     const container = render(
-      <Transaction
-        createdAt={createdAt}
-        newTransaction={newTransaction}
-        type={type}
-      />
+      <Transaction createdAt={createdAt} value={value} type={type} tag={tag} />
     )
     expect(container.firstChild).toMatchSnapshot()
   })

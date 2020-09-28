@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleSwitch renders correctly 1`] = `
+<div>
+  <div
+    class="ToggleSwitch__ToggleWrapper-sc-6ivz1u-0 iUra-dM"
+  >
+    <div
+      class="ToggleSwitch__ToggleContainer-sc-6ivz1u-1 cbUICA"
+    >
+      <div
+        class="ToggleSwitch__DialogueSlider-sc-6ivz1u-2 chBoOO"
+      >
+        Income
+      </div>
+    </div>
+  </div>
+</div>
+`;

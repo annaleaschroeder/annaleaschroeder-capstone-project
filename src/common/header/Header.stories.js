@@ -12,4 +12,4 @@ export default {
 const Template = (args) => <Header {...args} />
 
 export const HeaderToday = Template.bind({})
-HeaderToday.args = { date: new Date() }
+HeaderToday.args = { date: new Date(), title: 'Budget Overview' }

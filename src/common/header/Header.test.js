@@ -5,8 +5,9 @@ import renderer from 'react-test-renderer'
 
 describe('Header', () => {
   const date = new Date()
+  const title = 'Budget Overview'
   it('shows the main headline', () => {
-    const { getByText } = render(<Header date={date} />)
+    const { getByText } = render(<Header date={date} title={title} />)
     expect(getByText('Budget Overview')).toBeInTheDocument()
   })
 
@@ -49,69 +50,6 @@ describe('Header', () => {
   it('renders correctly for February', () => {
     const tree = renderer.create(
       <Header date={new Date('2020-02-27 19:29:59 +02:00')} />
-    )
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders correctly for March', () => {
-    const tree = renderer.create(
-      <Header date={new Date('2020-03-17 19:29:59 +02:00')} />
-    )
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders correctly for April', () => {
-    const tree = renderer.create(
-      <Header date={new Date('2020-04-13 15:29:59 +02:00')} />
-    )
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders correctly for May', () => {
-    const tree = renderer.create(
-      <Header date={new Date('2020-05-06 03:29:59 +02:00')} />
-    )
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders correctly for June', () => {
-    const tree = renderer.create(
-      <Header date={new Date('2020-06-15 12:59:59 +02:00')} />
-    )
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders correctly for July', () => {
-    const tree = renderer.create(
-      <Header date={new Date('2020-07-15 12:59:59 +02:00')} />
-    )
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders correctly for August', () => {
-    const tree = renderer.create(
-      <Header date={new Date('2020-08-31 23:59:59 +02:00')} />
-    )
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders correctly for September', () => {
-    const tree = renderer.create(
-      <Header date={new Date('2020-09-01 00:00:00 +02:00')} />
-    )
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders correctly for October', () => {
-    const tree = renderer.create(
-      <Header date={new Date('2020-10-01 00:00:00 +02:00')} />
-    )
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders correctly for November', () => {
-    const tree = renderer.create(
-      <Header date={new Date('2020-11-01 00:00:00 +02:00')} />
     )
     expect(tree).toMatchSnapshot()
   })

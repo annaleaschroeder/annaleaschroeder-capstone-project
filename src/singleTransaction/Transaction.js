@@ -5,14 +5,6 @@ import EditButton from '../buttons/EditButton'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-Transaction.propTypes = {
-  createdAt: PropTypes.string.isRequired,
-  newTransaction: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired,
-  notes: PropTypes.string,
-  tag: PropTypes.string.isRequired,
-}
-
 export default function Transaction({
   createdAt,
   newTransaction,
@@ -29,6 +21,7 @@ export default function Transaction({
     style: 'currency',
     currency: 'EUR',
   }).format(newTransaction)
+
   const value = `${type === 'spending' ? '-' : '+'}${formatCurrency}`
 
   return (
@@ -57,6 +50,14 @@ export default function Transaction({
     event.stopPropagation()
     history.push(`/transactions/${id}`)
   }
+}
+
+Transaction.propTypes = {
+  createdAt: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  notes: PropTypes.string,
+  tag: PropTypes.string.isRequired,
 }
 
 const TimestampStyled = styled.span`

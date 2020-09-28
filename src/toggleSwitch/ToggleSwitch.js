@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 ToggleSwitch.propTypes = {
   selected: PropTypes.bool.isRequired,
-  onToggle: PropTypes.func.isRequired,
+  onToggle: PropTypes.func,
 }
 
 export default function ToggleSwitch({ selected, onToggle }) {

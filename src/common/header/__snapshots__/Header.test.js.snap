@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly for December 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1hwuuy3-0 dbgkfT"
+>
+  <h1
+    className="Header__Headline-sc-1hwuuy3-1 bdZqMG"
+  />
+  <h2
+    className="Header__SubHeadline-sc-1hwuuy3-2 dfqa-Dv"
+  >
+    December 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for February 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1hwuuy3-0 dbgkfT"
+>
+  <h1
+    className="Header__Headline-sc-1hwuuy3-1 bdZqMG"
+  />
+  <h2
+    className="Header__SubHeadline-sc-1hwuuy3-2 dfqa-Dv"
+  >
+    February 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for January 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1hwuuy3-0 dbgkfT"
+>
+  <h1
+    className="Header__Headline-sc-1hwuuy3-1 bdZqMG"
+  />
+  <h2
+    className="Header__SubHeadline-sc-1hwuuy3-2 dfqa-Dv"
+  >
+    January 2020
+  </h2>
+</header>
+`;
+
+exports[`Header renders correctly for January 2021 1`] = `
+<header
+  className="Header__HeaderStyled-sc-1hwuuy3-0 dbgkfT"
+>
+  <h1
+    className="Header__Headline-sc-1hwuuy3-1 bdZqMG"
+  />
+  <h2
+    className="Header__SubHeadline-sc-1hwuuy3-2 dfqa-Dv"
+  >
+    January 2021
+  </h2>
+</header>
+`;
