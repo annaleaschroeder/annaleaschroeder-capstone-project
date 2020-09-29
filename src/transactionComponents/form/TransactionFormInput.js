@@ -39,7 +39,7 @@ export default function TransactionFormInput({
     >
       {({ values, errors, touched }) => {
         return (
-          <FormStyled>
+          <FormStyled autocomplete="off">
             <Input
               name="value"
               placeholder="Enter transaction"

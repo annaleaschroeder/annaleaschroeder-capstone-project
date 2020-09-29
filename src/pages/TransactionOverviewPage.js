@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import TransactionList from '../transactionList/TransactionList'
+import TransactionList from '../transactionComponents/transactionList/TransactionList'
 import styled from 'styled-components/macro'
 import {
   getTransactionEntries,
@@ -7,7 +7,7 @@ import {
   editTransactionEntry,
 } from '../services/transactionServices'
 import { updateMonthlyBudget } from '../common/updateMonthlyBudget'
-import AddTransactionButton from '../buttons/AddTransactionButton'
+import AddTransactionButton from '../common/buttons/AddTransactionButton'
 
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
