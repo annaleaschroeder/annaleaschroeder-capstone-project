@@ -19,9 +19,6 @@ export default function DeleteButton({ onClick }) {
 }
 
 const StyledButton = styled.button`
-  position: absolute;
-  top: -10px;
-  right: -35px;
   width: auto;
   height: auto;
   padding: 4px;
