@@ -19,9 +19,6 @@ export default function EditButton({ onClick }) {
 }
 
 const StyledButton = styled.button`
-  position: absolute;
-  top: 27px;
-  right: -35px;
   width: auto;
   height: auto;
   padding: 4px;

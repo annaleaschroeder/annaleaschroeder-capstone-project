@@ -28,10 +28,12 @@ export default function Transaction({
     <>
       <TimestampStyled>{createdAt}</TimestampStyled>
       <StyledTransaction onClick={toggleNotes}>
-        <ButtonContainer>
+        <PositionDeleteButton>
           <DeleteButton onClick={deleteTransaction} />
-        </ButtonContainer>
-        <EditButton onClick={transitionToEditTransactionPage} />
+        </PositionDeleteButton>
+        <PositionEditButton>
+          <EditButton onClick={transitionToEditTransactionPage} />
+        </PositionEditButton>
         <TagContainer>
           <TagStyled className={tag.toLowerCase()}>{tag}</TagStyled>
         </TagContainer>
@@ -80,11 +82,18 @@ const StyledTransaction = styled.section`
   word-break: break-all;
   line-height: 1.5;
 `
-const ButtonContainer = styled.div`
+const PositionDeleteButton = styled.div`
   position: absolute;
   top: -10px;
   right: -35px;
 `
+
+const PositionEditButton = styled.div`
+  position: absolute;
+  top: 27px;
+  right: -35px;
+`
+
 const TagContainer = styled.span`
   grid-column: 1 / 2;
   grid-row: 1 / 2;
