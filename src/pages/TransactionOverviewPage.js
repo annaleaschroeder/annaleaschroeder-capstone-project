@@ -36,7 +36,9 @@ export default function TransactionOverviewPage() {
         transactions={transactions}
         editTransaction={editTransaction}
       />
-      <AddTransactionButton />
+      <ButtonContainer>
+        <AddTransactionButton />
+      </ButtonContainer>
     </PageStyled>
   )
 }
@@ -56,4 +58,15 @@ const BalanceHeadline = styled.div`
 const Balance = styled.div`
   display: inline;
   font-weight: bold;
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+  height: auto;
+  width: auto;
+  z-index: 100;
+  bottom: 40px;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
 `
