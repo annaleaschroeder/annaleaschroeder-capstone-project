@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TransactionFormInput from '../transactionComponents/form/TransactionFormInput'
 import ToggleSwitch from '../common/toggleSwitch/ToggleSwitch'
-import ReturnToOverviewButton from '../common/buttons/ReturnToOverviewButton'
+import ReturnToOverviewButton from '../common/buttons/returnButton/ReturnToOverviewButton'
 import styled from 'styled-components/macro'
 import {
   editTransactionEntry,
