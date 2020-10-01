@@ -28,7 +28,6 @@ const AddTrxRoute = styled.a`
   padding: 20px;
   cursor: pointer;
   position: fixed;
-  z-index: 10;
   bottom: 40px;
 `
 

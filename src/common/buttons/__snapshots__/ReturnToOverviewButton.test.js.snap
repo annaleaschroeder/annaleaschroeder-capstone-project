@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReturnToOverviewButton renders correctly 1`] = `
+<div>
+  <div
+    class="ReturnToOverviewButton__ButtonContainer-icvcgs-0 GFBUE"
+  >
+    <a
+      class="ReturnToOverviewButton__ReturnRoute-icvcgs-1 dIebFL"
+      href="/"
+    >
+      <button
+        class="ReturnToOverviewButton__ReturnButton-icvcgs-2 egFwHj"
+      >
+        <svg
+          class="ReturnToOverviewButton__ReturnImage-icvcgs-3 fiPpHN"
+          height="40"
+          viewBox="0 0 24 24"
+          width="40"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+      </button>
+    </a>
+  </div>
+</div>
+`;

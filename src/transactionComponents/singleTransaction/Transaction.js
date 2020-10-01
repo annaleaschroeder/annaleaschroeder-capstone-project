@@ -5,6 +5,14 @@ import EditButton from '../../common/buttons/EditButton'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
+Transaction.propTypes = {
+  createdAt: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  notes: PropTypes.string,
+  tag: PropTypes.string.isRequired,
+}
+
 export default function Transaction({
   createdAt,
   newTransaction,
@@ -54,14 +62,6 @@ export default function Transaction({
     event.stopPropagation()
     history.push(`/transactions/${id}`)
   }
-}
-
-Transaction.propTypes = {
-  createdAt: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  notes: PropTypes.string,
-  tag: PropTypes.string.isRequired,
 }
 
 const TimestampStyled = styled.span`

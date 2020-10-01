@@ -62,10 +62,6 @@ const Balance = styled.div`
 
 const ButtonContainer = styled.div`
   display: flex;
-  height: auto;
-  width: auto;
-  z-index: 100;
-  bottom: 40px;
   justify-content: center;
   justify-self: center;
   justify-items: center;
