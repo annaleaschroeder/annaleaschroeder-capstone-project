@@ -42,3 +42,15 @@ to run Storybook: `npm run storybook`
 to run React Testing Library & Jest: `npm test`
 
 to run Cypress `npm run cypress`
+
+## Features in Backlog
+
+- Sorting: explicit sorting of the TransactionList by date
+
+- Filter: Filter the display of the TransactionList by month, so that only the transactions of the current month are shown
+
+- Create History: The user is able to switch between existing monthly histories by using arrows next to the month headline
+
+- Filter: By clicking on tags, the user is able to filter the entries belonging to the category from one month and display the total sum of transactions of the chosen category and to set it into relation to the monthly balance
+
+- Donut chart based on tags: to help the user keep track of the transaction history, a dynamic donut chart is created based on the assigned tags (percentage values)
