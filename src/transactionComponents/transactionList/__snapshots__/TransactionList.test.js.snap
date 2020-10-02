@@ -7,7 +7,9 @@ exports[`Lists all incoming Transactions renders correctly 1`] = `
   <li>
     <span
       className="Transaction__TimestampStyled-sc-1c8pu3h-0 lnVrnB"
-    />
+    >
+      9.1.2020
+    </span>
     <section
       className="Transaction__StyledTransaction-sc-1c8pu3h-1 eibPvK"
       onClick={[Function]}
@@ -70,9 +72,9 @@ exports[`Lists all incoming Transactions renders correctly 1`] = `
         </div>
       </span>
       <span
-        className="Transaction__ValueStyled-sc-1c8pu3h-6 hhIzvF"
+        className="Transaction__ValueStyled-sc-1c8pu3h-6 hhIzvF spending"
       >
-        +€NaN
+        -€15.99
       </span>
     </section>
   </li>

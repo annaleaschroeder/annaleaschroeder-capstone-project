@@ -7,10 +7,11 @@ import PropTypes from 'prop-types'
 
 Transaction.propTypes = {
   createdAt: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  newTransaction: PropTypes.number,
   type: PropTypes.string.isRequired,
   notes: PropTypes.string,
   tag: PropTypes.string.isRequired,
+  id: PropTypes.string,
 }
 
 export default function Transaction({
