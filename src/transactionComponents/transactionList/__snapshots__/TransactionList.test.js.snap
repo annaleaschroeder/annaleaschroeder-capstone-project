@@ -16,7 +16,7 @@ exports[`Lists all incoming Transactions renders correctly 1`] = `
         className="Transaction__PositionDeleteButton-sc-1c8pu3h-2 cTuiyF"
       >
         <button
-          className="DeleteButton__StyledButton-pzekew-0 dtObUY"
+          className="DeleteButton__StyledButton-nra254-0 dOmPfU"
           onClick={[Function]}
         >
           <svg
@@ -40,7 +40,7 @@ exports[`Lists all incoming Transactions renders correctly 1`] = `
         className="Transaction__PositionEditButton-sc-1c8pu3h-3 BoDNw"
       >
         <button
-          className="EditButton__StyledButton-sc-1sqq064-0 skkOC"
+          className="EditButton__StyledButton-sc-1rgdk1k-0 caOfdr"
           onClick={[Function]}
         >
           <svg

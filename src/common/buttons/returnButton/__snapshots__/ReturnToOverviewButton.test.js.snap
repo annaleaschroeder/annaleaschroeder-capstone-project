@@ -3,17 +3,17 @@
 exports[`ReturnToOverviewButton renders correctly 1`] = `
 <div>
   <div
-    class="ReturnToOverviewButton__ButtonContainer-icvcgs-0 GFBUE"
+    class="ReturnToOverviewButton__ButtonContainer-sc-12mn0g6-0 bAjjFv"
   >
     <a
-      class="ReturnToOverviewButton__ReturnRoute-icvcgs-1 dIebFL"
+      class="ReturnToOverviewButton__ReturnRoute-sc-12mn0g6-1 saeg"
       href="/"
     >
       <button
-        class="ReturnToOverviewButton__ReturnButton-icvcgs-2 egFwHj"
+        class="ReturnToOverviewButton__ReturnButton-sc-12mn0g6-2 cLMUAI"
       >
         <svg
-          class="ReturnToOverviewButton__ReturnImage-icvcgs-3 fiPpHN"
+          class="ReturnToOverviewButton__ReturnImage-sc-12mn0g6-3 dRmaoe"
           height="40"
           viewBox="0 0 24 24"
           width="40"

@@ -3,13 +3,13 @@
 exports[`ToggleSwitch renders correctly 1`] = `
 <div>
   <div
-    class="ToggleSwitch__ToggleWrapper-sc-6ivz1u-0 iUra-dM"
+    class="ToggleSwitch__ToggleWrapper-sc-5n388k-0 hVULVA"
   >
     <div
-      class="ToggleSwitch__ToggleContainer-sc-6ivz1u-1 cbUICA"
+      class="ToggleSwitch__ToggleContainer-sc-5n388k-1 feDqFs"
     >
       <div
-        class="ToggleSwitch__DialogueSlider-sc-6ivz1u-2 chBoOO"
+        class="ToggleSwitch__DialogueSlider-sc-5n388k-2 frtWhW"
       >
         Income
       </div>

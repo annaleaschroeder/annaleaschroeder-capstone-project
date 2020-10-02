@@ -33,15 +33,37 @@ Take a look at the app here here or watch the demo below.
 
 ## How to set it up
 
-clone this repository, install all npm dependencies: `npm install`
+clone this repository, install all npm dependencies:
 
-to run the app in development mode `npm start`, then open http://localhost:3000 to view it in the browser
+```
+$ npm install
+```
 
-to run Storybook: `npm run storybook`
+to run the app in development mode:
 
-to run React Testing Library & Jest: `npm test`
+```
+$ npm start
+```
 
-to run Cypress `npm run cypress`
+,then open http://localhost:3000 to view it in the browser
+
+to run Storybook:
+
+```
+$ npm run storybook
+```
+
+to run React Testing Library & Jest
+
+```
+$ npm test
+```
+
+to run Cypress
+
+```
+$ npm run cypress
+```
 
 ## Features in Backlog
 
