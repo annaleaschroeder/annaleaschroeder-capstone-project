@@ -13,8 +13,6 @@ Take a look at the app here here or watch the demo below.
 
 ## App impressions
 
-![Homescreen](public/Transaction_Overview.png) ![Add new Transactions](public/Add_new_Transaction.png) ![Edit Transaction](public/Edit_Transaction.png)
-
 ## Tech stack
 
 - React
@@ -76,4 +74,3 @@ $ npm run cypress
 - Filter: By clicking on tags, the user is able to filter the entries belonging to the category from one month and display the total sum of transactions of the chosen category and to set it into relation to the monthly balance
 
 - Donut chart based on tags: to help the user keep track of the transaction history, a dynamic donut chart is created based on the assigned tags (percentage values)
-
