@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Budgetly
 
-## Available Scripts
+## Never loose track of you monthly budget again!
 
-In the project directory, you can run:
+It is so easy to lose track of your monthly expenses: The early morning coffee from the local bakery, going out to eat with friends, having a beer with colleagues... That's where Budgetly comes into play: Budgetly helps you to keep a comfortable overview of your financial status at any time.
 
-### `yarn start`
+This app was developed as my capstone project during the final four weeks of the neuefische Web Development Bootcamp in September 2020 in Hamburg, Germany.
+Budgetly is optimized for mobile usage, so please switch your browser to responsive mode (iPhone 6/7/8)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Take a look at the app here here or watch the demo below.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![demo](public/anna-lea_schroeder_budgetly.gif)
 
-### `yarn test`
+## App impressions
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Homescreen](public/Transaction_Overview.png) ![Add new Transactions](public/Add_new_Transaction.png) ![Edit Transaction](public/Edit_Transaction.png)
 
-### `yarn build`
+## Tech stack
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- React Hooks
+- React Router
+- Styled Components
+- Vercel
+- PropTypes
+- uuid
+- Storybook
+- Jest
+- React Testing Library
+- Cypress
+- Formik
+- Yup
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## How to set it up
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+clone this repository, install all npm dependencies: `npm install`
 
-### `yarn eject`
+to run the app in development mode `npm start`, then open http://localhost:3000 to view it in the browser
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+to run Storybook: `npm run storybook`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+to run React Testing Library & Jest: `npm test`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+to run Cypress `npm run cypress`
