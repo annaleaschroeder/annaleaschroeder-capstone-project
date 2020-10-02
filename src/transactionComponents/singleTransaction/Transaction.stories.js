@@ -10,9 +10,9 @@ const Template = (args) => <Transaction {...args} />
 
 export const IndivdualTransaction = Template.bind()
 IndivdualTransaction.args = {
-  createdAt: '07.9.2020',
-  value: '+15.99 €',
-  type: 'income',
+  timestamp: '07.9.2020',
+  newTransaction: 15.99,
+  type: 'spending',
   tag: 'food',
   notes: 'Lunch with Lara and Tom',
 }

@@ -1,9 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import DeleteButton from '../buttons/DeleteButton'
-import EditButton from '../buttons/EditButton'
+import DeleteButton from '../../common/buttons/deleteButton/DeleteButton'
+import EditButton from '../../common/buttons/editButton/EditButton'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
+
+Transaction.propTypes = {
+  createdAt: PropTypes.string.isRequired,
+  newTransaction: PropTypes.number,
+  type: PropTypes.string.isRequired,
+  notes: PropTypes.string,
+  tag: PropTypes.string.isRequired,
+  id: PropTypes.string,
+}
 
 export default function Transaction({
   createdAt,
@@ -28,8 +37,12 @@ export default function Transaction({
     <>
       <TimestampStyled>{createdAt}</TimestampStyled>
       <StyledTransaction onClick={toggleNotes}>
-        <DeleteButton onClick={deleteTransaction} />
-        <EditButton onClick={transitionToEditTransactionPage} />
+        <PositionDeleteButton>
+          <DeleteButton onClick={deleteTransaction} />
+        </PositionDeleteButton>
+        <PositionEditButton>
+          <EditButton onClick={transitionToEditTransactionPage} />
+        </PositionEditButton>
         <TagContainer>
           <TagStyled className={tag.toLowerCase()}>{tag}</TagStyled>
         </TagContainer>
@@ -52,14 +65,6 @@ export default function Transaction({
   }
 }
 
-Transaction.propTypes = {
-  createdAt: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  notes: PropTypes.string,
-  tag: PropTypes.string.isRequired,
-}
-
 const TimestampStyled = styled.span`
   font-weight: bold;
 `
@@ -77,6 +82,17 @@ const StyledTransaction = styled.section`
   border-radius: 20px;
   word-break: break-all;
   line-height: 1.5;
+`
+const PositionDeleteButton = styled.div`
+  position: absolute;
+  top: -10px;
+  right: -35px;
+`
+
+const PositionEditButton = styled.div`
+  position: absolute;
+  top: 27px;
+  right: -35px;
 `
 
 const TagContainer = styled.span`

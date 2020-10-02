@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import TransactionList from '../transactionList/TransactionList'
+import TransactionList from '../transactionComponents/transactionList/TransactionList'
 import styled from 'styled-components/macro'
 import {
   getTransactionEntries,
@@ -7,7 +7,7 @@ import {
   editTransactionEntry,
 } from '../services/transactionServices'
 import { updateMonthlyBudget } from '../common/updateMonthlyBudget'
-import AddTransactionButton from '../buttons/AddTransactionButton'
+import AddTransactionButton from '../common/buttons/addTransactionButton/AddTransactionButton'
 
 export default function TransactionOverviewPage() {
   const [transactions, setTransactions] = useState([])
@@ -36,7 +36,9 @@ export default function TransactionOverviewPage() {
         transactions={transactions}
         editTransaction={editTransaction}
       />
-      <AddTransactionButton />
+      <ButtonContainer>
+        <AddTransactionButton />
+      </ButtonContainer>
     </PageStyled>
   )
 }
@@ -56,4 +58,11 @@ const BalanceHeadline = styled.div`
 const Balance = styled.div`
   display: inline;
   font-weight: bold;
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
 `

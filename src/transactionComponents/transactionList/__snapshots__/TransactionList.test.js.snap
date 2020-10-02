@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lists all incoming Transactions renders correctly 1`] = `
+<ul
+  className="TransactionList__StyledList-eypxhw-0 nuLIe"
+>
+  <li>
+    <span
+      className="Transaction__TimestampStyled-sc-1c8pu3h-0 lnVrnB"
+    >
+      9.1.2020
+    </span>
+    <section
+      className="Transaction__StyledTransaction-sc-1c8pu3h-1 eibPvK"
+      onClick={[Function]}
+    >
+      <div
+        className="Transaction__PositionDeleteButton-sc-1c8pu3h-2 cTuiyF"
+      >
+        <button
+          className="DeleteButton__StyledButton-nra254-0 dOmPfU"
+          onClick={[Function]}
+        >
+          <svg
+            fill="grey"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        className="Transaction__PositionEditButton-sc-1c8pu3h-3 BoDNw"
+      >
+        <button
+          className="EditButton__StyledButton-sc-1rgdk1k-0 caOfdr"
+          onClick={[Function]}
+        >
+          <svg
+            fill="grey"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+            />
+          </svg>
+        </button>
+      </div>
+      <span
+        className="Transaction__TagContainer-sc-1c8pu3h-4 fRaOQb"
+      >
+        <div
+          className="Transaction__TagStyled-sc-1c8pu3h-5 elIoLu food"
+        >
+          food
+        </div>
+      </span>
+      <span
+        className="Transaction__ValueStyled-sc-1c8pu3h-6 hhIzvF spending"
+      >
+        -€15.99
+      </span>
+    </section>
+  </li>
+</ul>
+`;
