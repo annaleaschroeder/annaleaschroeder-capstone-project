@@ -44,7 +44,7 @@ const DialogueSlider = styled.div`
   font-size: 80%;
   font-weight: bold;
   line-height: 16px;
-  color: white;
+  color: var(--white);
   background-color: var(--toggle-spending);
   padding: 8px 12px;
   border-radius: 3px;

@@ -103,7 +103,7 @@ const TagContainer = styled.span`
 
 const TagStyled = styled.div`
   display: block;
-  color: black;
+  color: var(--black);
   border: 2px solid;
   border-radius: 20px;
   text-align: center;

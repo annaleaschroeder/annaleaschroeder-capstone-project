@@ -105,13 +105,13 @@ const Input = styled(Field)`
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   align-self: end;
-  border: 1px solid black;
+  border: 1px solid var(--black);
   border-radius: 5px;
   padding: 0 10px;
   width: 100%;
   height: 50px;
   background: none;
-  box-shadow: 5px 5px 10px #e4e7eb;
+  box-shadow: 5px 5px 10px var(--grey-shadow);
   text-indent: 5px;
   font-size: 85%;
   line-height: 1.5;
@@ -126,7 +126,7 @@ const ErrorMessageInput = styled.div`
 const DropDown = styled(Field)`
   grid-column: 2 / 3;
   grid-row: 3 / 4;
-  box-shadow: 5px 5px 10px #e4e7eb;
+  box-shadow: 5px 5px 10px var(--grey-shadow);
   display: block;
   font-size: 90%;
   line-height: 1.5;
@@ -135,7 +135,7 @@ const DropDown = styled(Field)`
   max-width: 100%;
   margin: 0;
 
-  border: 1px solid black;
+  border: 1px solid var(--black);
   border-radius: 5px;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -158,13 +158,13 @@ const Notes = styled(Field)`
   grid-column: 2 / 3;
   grid-row: 5 / 6;
   align-self: end;
-  border: 1px solid black;
+  border: 1px solid var(--black);
   border-radius: 5px;
   padding: 0 10px;
   width: 100%;
   height: 50px;
   background: none;
-  box-shadow: 5px 5px 10px #e4e7eb;
+  box-shadow: 5px 5px 10px var(--grey-shadow);
 
   font-size: 85%;
   line-height: 1.5;
@@ -186,9 +186,9 @@ const AddTrxBtn = styled.button`
   padding: 5px;
   font-size: 75%;
   font-weight: bold;
-  color: white;
+  color: var(--white);
   background: var(--blue-main);
-  box-shadow: 5px 5px 10px #e4e7eb;
+  box-shadow: 5px 5px 10px var(--grey-shadow);
   border-radius: 5px;
   border: none;
   margin-top: 10px;

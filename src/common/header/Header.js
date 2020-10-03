@@ -48,12 +48,12 @@ const Headline = styled.h1`
   margin: 0;
   font-size: 200%;
   display: block;
-  color: white;
+  color: var(--white);
 `
 const SubHeadline = styled.h2`
   text-align: center;
   margin: 0;
   font-size: 150%;
   display: block;
-  color: white;
+  color: var(--white);
 `
