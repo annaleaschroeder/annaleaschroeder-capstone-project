@@ -11,7 +11,10 @@ export default function ToggleSwitch({ selected, onToggle }) {
   return (
     <ToggleWrapper>
       <ToggleContainer onClick={onToggle}>
-        <DialogueSlider className={selected ? '' : 'changeColor'}>
+        <DialogueSlider
+          data-cy="toggle"
+          className={selected ? '' : 'changeColor'}
+        >
           {selected ? 'Income' : 'Spending'}
         </DialogueSlider>
       </ToggleContainer>

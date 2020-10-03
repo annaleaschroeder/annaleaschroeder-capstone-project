@@ -44,12 +44,20 @@ export default function TransactionFormInput({
               name="value"
               placeholder="Enter transaction"
               value={values.value}
+              id="value"
             />
             {errors.value && touched.value ? (
-              <ErrorMessageInput>{errors.value}</ErrorMessageInput>
+              <ErrorMessageInput id="errorValue">
+                {errors.value}
+              </ErrorMessageInput>
             ) : null}
             <LableStyled htmlFor="value">Euro</LableStyled>
-            <DropDown name="tag" component="select" value={values.tag}>
+            <DropDown
+              id="dropdown"
+              name="tag"
+              component="select"
+              value={values.tag}
+            >
               <option value="" hidden>
                 -- Choose a tag --
               </option>
@@ -67,6 +75,7 @@ export default function TransactionFormInput({
             <Notes
               type="textarea"
               name="notes"
+              id="notes"
               placeholder="Add notes to transaction"
               value={values.notes}
             />
@@ -74,7 +83,9 @@ export default function TransactionFormInput({
               <ErrorMessageNotes>{errors.notes}</ErrorMessageNotes>
             ) : null}
 
-            <AddTrxBtn type="submit">Save</AddTrxBtn>
+            <AddTrxBtn id="saveBtn" type="submit">
+              Save
+            </AddTrxBtn>
 
             <CancelBtn type="reset">Reset</CancelBtn>
           </FormStyled>

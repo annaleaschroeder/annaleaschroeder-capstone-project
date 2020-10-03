@@ -27,8 +27,12 @@ export default function TransactionOverviewPage() {
   return (
     <PageStyled>
       <BalanceContainer>
-        <BalanceHeadline>Monthly Balance:</BalanceHeadline>
-        <Balance>{updateMonthlyBudget(transactions)}</Balance>
+        <BalanceHeadline data-cy="balanceHeadline">
+          Monthly Balance:
+        </BalanceHeadline>
+        <Balance data-cy="monthlyBudget">
+          {updateMonthlyBudget(transactions)}
+        </Balance>
       </BalanceContainer>
       <hr />
       <TransactionList
