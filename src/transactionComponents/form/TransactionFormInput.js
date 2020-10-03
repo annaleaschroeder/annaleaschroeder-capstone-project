@@ -87,7 +87,9 @@ export default function TransactionFormInput({
               Save
             </AddTrxBtn>
 
-            <CancelBtn type="reset">Reset</CancelBtn>
+            <CancelBtn id="reset" type="reset">
+              Reset
+            </CancelBtn>
           </FormStyled>
         )
       }}

@@ -42,5 +42,21 @@ context('Add new Transaction Page', () => {
     cy.get('#dropdown').select('FixedCosts')
     cy.get('#notes').type('Gehalt')
     cy.get('#saveBtn').click()
+
+    // user adds a transaction and resets once during typing
+    cy.get('a').click()
+    cy.get('[data-cy=toggle]').should('contain', 'Spending')
+    cy.get('#value').type('3,89').should('have.value', '3,89')
+    cy.get('#dropdown').should('contain', '-- Choose a tag --')
+    cy.get('#dropdown').select('Food')
+    cy.get('#notes').type('Kaffe am Bahnhof')
+    cy.get('#reset').click()
+    cy.get('#value').type('4,89').should('have.value', '4,89')
+    cy.get('#dropdown').should('contain', '-- Choose a tag --')
+    cy.get('#dropdown').select('Food')
+    cy.get('#notes').type('Kaffe am Bahnhof')
+    cy.get('#saveBtn').click()
+
+    // edit a transaction
   })
 })
