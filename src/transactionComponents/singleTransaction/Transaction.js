@@ -36,7 +36,7 @@ export default function Transaction({
   return (
     <>
       <TimestampStyled>{createdAt}</TimestampStyled>
-      <StyledTransaction onClick={toggleNotes}>
+      <StyledTransaction onClick={toggleNotes} data-cy={`transaction-${id}`}>
         <PositionDeleteButton>
           <DeleteButton onClick={deleteTransaction} />
         </PositionDeleteButton>

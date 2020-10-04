@@ -56,7 +56,5 @@ context('Add new Transaction Page', () => {
     cy.get('#dropdown').select('Food')
     cy.get('#notes').type('Kaffe am Bahnhof')
     cy.get('#saveBtn').click()
-
-    // edit a transaction
   })
 })

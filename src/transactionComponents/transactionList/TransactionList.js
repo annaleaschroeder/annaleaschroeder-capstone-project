@@ -9,7 +9,7 @@ TransactionList.propTypes = {
 
 export default function TransactionList({ deleteTransaction, transactions }) {
   return (
-    <StyledList>
+    <StyledList data-cy="transactionsList">
       {transactions.map(({ timestamp, value, id, type, notes, tag }) => (
         <li key={id}>
           <Transaction
