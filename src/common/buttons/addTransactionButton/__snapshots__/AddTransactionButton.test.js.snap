@@ -8,7 +8,7 @@ exports[`AddTransactionButton renders correctly 1`] = `
   >
     <svg
       class="AddTransactionButton__AddImage-sc-12jarje-1 dMOSom"
-      fill="white"
+      fill="var(--white)"
       height="40"
       viewBox="0 0 24 24"
       width="40"

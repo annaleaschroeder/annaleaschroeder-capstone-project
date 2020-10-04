@@ -11,7 +11,10 @@ export default function ToggleSwitch({ selected, onToggle }) {
   return (
     <ToggleWrapper>
       <ToggleContainer onClick={onToggle}>
-        <DialogueSlider className={selected ? '' : 'changeColor'}>
+        <DialogueSlider
+          data-cy="toggle"
+          className={selected ? '' : 'changeColor'}
+        >
           {selected ? 'Income' : 'Spending'}
         </DialogueSlider>
       </ToggleContainer>
@@ -44,7 +47,7 @@ const DialogueSlider = styled.div`
   font-size: 80%;
   font-weight: bold;
   line-height: 16px;
-  color: white;
+  color: var(--white);
   background-color: var(--toggle-spending);
   padding: 8px 12px;
   border-radius: 3px;

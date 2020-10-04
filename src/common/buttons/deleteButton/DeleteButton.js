@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 
 export default function DeleteButton({ onClick }) {
   return (
-    <StyledButton onClick={onClick}>
+    <StyledButton id="delete" onClick={onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="24"

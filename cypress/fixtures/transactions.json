@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "5.10.2020",
+    "value": 600.89,
+    "type": "spending",
+    "notes": "Miete Oktober",
+    "tag": "FixedCosts",
+    "id": "15d7ce40-9442-46b9-95ae-bad6e0096asd"
+  },
+  {
+    "timestamp": "3.10.2020",
+    "value": 15.89,
+    "type": "spending",
+    "notes": "Lunch mit Lara und Janina",
+    "tag": "Leisure",
+    "id": "15d7ce40-9442-46b9-95ae-bad6e0096poi"
+  },
+  {
+    "timestamp": "1.10.2020",
+    "value": 2133.99,
+    "type": "income",
+    "notes": "Gehalt September",
+    "tag": "Earnings",
+    "id": "15d7ce40-9442-46b9-95ae-bad6e0096cfb"
+  }
+]

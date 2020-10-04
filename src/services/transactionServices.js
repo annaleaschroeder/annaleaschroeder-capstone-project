@@ -8,9 +8,9 @@ const dateConventionSettings = {
 }
 
 export function getTransactionEntries() {
-  const transactions = []
-  return loadLocally('Transactions', transactions).catch(() => {
-    return transactions
+  return loadLocally('Transactions').catch((error) => {
+    console.log(error)
+    return []
   })
 }
 

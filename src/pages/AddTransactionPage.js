@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import TransactionFormInput from '../transactionComponents/form/TransactionFormInput'
+import TransactionFormInput from '../transactionComponents/transactionForm/TransactionFormInput'
 import ToggleSwitch from '../common/toggleSwitch/ToggleSwitch'
 import ReturnToOverviewButton from '../common/buttons/returnButton/ReturnToOverviewButton'
 import styled from 'styled-components/macro'

@@ -27,8 +27,12 @@ export default function TransactionOverviewPage() {
   return (
     <PageStyled>
       <BalanceContainer>
-        <BalanceHeadline>Monthly Balance:</BalanceHeadline>
-        <Balance>{updateMonthlyBudget(transactions)}</Balance>
+        <BalanceHeadline data-cy="balanceHeadline">
+          Monthly Balance:
+        </BalanceHeadline>
+        <Balance data-cy="monthlyBudget">
+          {updateMonthlyBudget(transactions)}
+        </Balance>
       </BalanceContainer>
       <hr />
       <TransactionList
@@ -37,7 +41,9 @@ export default function TransactionOverviewPage() {
         editTransaction={editTransaction}
       />
       <ButtonContainer>
-        <AddTransactionButton />
+        <ButtonPositionContainer>
+          <AddTransactionButton />
+        </ButtonPositionContainer>
       </ButtonContainer>
     </PageStyled>
   )
@@ -65,4 +71,10 @@ const ButtonContainer = styled.div`
   justify-content: center;
   justify-self: center;
   justify-items: center;
+  height: 100px;
+`
+
+const ButtonPositionContainer = styled.div`
+  position: fixed;
+  bottom: 40px;
 `

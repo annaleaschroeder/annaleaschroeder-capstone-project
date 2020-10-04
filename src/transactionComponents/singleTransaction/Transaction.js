@@ -36,7 +36,7 @@ export default function Transaction({
   return (
     <>
       <TimestampStyled>{createdAt}</TimestampStyled>
-      <StyledTransaction onClick={toggleNotes}>
+      <StyledTransaction onClick={toggleNotes} data-cy={`transaction-${id}`}>
         <PositionDeleteButton>
           <DeleteButton onClick={deleteTransaction} />
         </PositionDeleteButton>
@@ -103,7 +103,7 @@ const TagContainer = styled.span`
 
 const TagStyled = styled.div`
   display: block;
-  color: black;
+  color: var(--black);
   border: 2px solid;
   border-radius: 20px;
   text-align: center;
