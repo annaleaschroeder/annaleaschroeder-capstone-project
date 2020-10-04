@@ -3,6 +3,7 @@
 exports[`Lists all incoming Transactions renders correctly 1`] = `
 <ul
   className="TransactionList__StyledList-eypxhw-0 nuLIe"
+  data-cy="transactionsList"
 >
   <li>
     <span
@@ -12,6 +13,7 @@ exports[`Lists all incoming Transactions renders correctly 1`] = `
     </span>
     <section
       className="Transaction__StyledTransaction-sc-1c8pu3h-1 eibPvK"
+      data-cy="transaction-1"
       onClick={[Function]}
     >
       <div
@@ -19,6 +21,7 @@ exports[`Lists all incoming Transactions renders correctly 1`] = `
       >
         <button
           className="DeleteButton__StyledButton-nra254-0 dOmPfU"
+          id="delete"
           onClick={[Function]}
         >
           <svg
@@ -43,6 +46,7 @@ exports[`Lists all incoming Transactions renders correctly 1`] = `
       >
         <button
           className="EditButton__StyledButton-sc-1rgdk1k-0 caOfdr"
+          id="edit"
           onClick={[Function]}
         >
           <svg
@@ -66,7 +70,7 @@ exports[`Lists all incoming Transactions renders correctly 1`] = `
         className="Transaction__TagContainer-sc-1c8pu3h-4 fRaOQb"
       >
         <div
-          className="Transaction__TagStyled-sc-1c8pu3h-5 elIoLu food"
+          className="Transaction__TagStyled-sc-1c8pu3h-5 iLUawe food"
         >
           food
         </div>

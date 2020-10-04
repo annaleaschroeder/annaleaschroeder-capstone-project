@@ -61,6 +61,7 @@ to run Cypress
 
 ```
 $ npm run cypress
+$ npm start
 ```
 
 ## Features in Backlog

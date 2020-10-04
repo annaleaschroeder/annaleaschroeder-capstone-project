@@ -9,7 +9,8 @@ exports[`ToggleSwitch renders correctly 1`] = `
       class="ToggleSwitch__ToggleContainer-sc-5n388k-1 feDqFs"
     >
       <div
-        class="ToggleSwitch__DialogueSlider-sc-5n388k-2 frtWhW"
+        class="ToggleSwitch__DialogueSlider-sc-5n388k-2 hCxEiy"
+        data-cy="toggle"
       >
         Income
       </div>

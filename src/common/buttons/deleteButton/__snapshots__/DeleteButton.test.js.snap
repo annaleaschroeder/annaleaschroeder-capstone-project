@@ -4,6 +4,7 @@ exports[`DeleteButton renders correctly 1`] = `
 <div>
   <button
     class="DeleteButton__StyledButton-nra254-0 dOmPfU"
+    id="delete"
   >
     <svg
       fill="grey"

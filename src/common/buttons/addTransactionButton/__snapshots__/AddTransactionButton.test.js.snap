@@ -3,7 +3,7 @@
 exports[`AddTransactionButton renders correctly 1`] = `
 <div>
   <a
-    class="AddTransactionButton__AddTrxRoute-sc-12jarje-0 crdSXg"
+    class="AddTransactionButton__AddTrxRoute-sc-12jarje-0 bcjktu"
     href="/add-new-transaction"
   >
     <svg

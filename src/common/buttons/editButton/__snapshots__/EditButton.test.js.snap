@@ -4,6 +4,7 @@ exports[`EditButton renders correctly 1`] = `
 <div>
   <button
     class="EditButton__StyledButton-sc-1rgdk1k-0 caOfdr"
+    id="edit"
   >
     <svg
       fill="grey"
