@@ -27,7 +27,9 @@ const mockData = [
   },
 ]
 
-context('Homepage', () => {
+//delete a specific transaction from TransactionList on Transaction Overview Page
+
+context('Transaction Overview Page', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000', {
       onBeforeLoad: function (window) {
