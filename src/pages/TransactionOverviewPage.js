@@ -41,7 +41,9 @@ export default function TransactionOverviewPage() {
         editTransaction={editTransaction}
       />
       <ButtonContainer>
-        <AddTransactionButton />
+        <ButtonPositionContainer>
+          <AddTransactionButton />
+        </ButtonPositionContainer>
       </ButtonContainer>
     </PageStyled>
   )
@@ -69,4 +71,10 @@ const ButtonContainer = styled.div`
   justify-content: center;
   justify-self: center;
   justify-items: center;
+  height: 100px;
+`
+
+const ButtonPositionContainer = styled.div`
+  position: fixed;
+  bottom: 40px;
 `

@@ -27,8 +27,9 @@ const AddTrxRoute = styled.a`
   background: var(--blue-main);
   padding: 20px;
   cursor: pointer;
-  position: fixed;
-  bottom: 40px;
+  width: intrinsic; /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content; /* Firefox/Gecko */
+  width: -webkit-max-content; /* Chrome */
 `
 
 const AddImage = styled.svg`
