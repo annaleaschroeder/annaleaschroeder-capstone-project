@@ -1,38 +1,13 @@
 /// <reference types="cypress" />
 
-const mockData = [
-  {
-    timestamp: '5.10.2020',
-    value: 600.89,
-    type: 'spending',
-    notes: 'Miete Oktober',
-    tag: 'FixedCosts',
-    id: '15d7ce40-9442-46b9-95ae-bad6e0096asd',
-  },
-  {
-    timestamp: '3.10.2020',
-    value: 15.89,
-    type: 'spending',
-    notes: 'Lunch mit Lara und Janina',
-    tag: 'leisure',
-    id: '15d7ce40-9442-46b9-95ae-bad6e0096poi',
-  },
-  {
-    timestamp: '1.10.2020',
-    value: 2133.99,
-    type: 'income',
-    notes: 'Gehalt September',
-    tag: 'Earnings',
-    id: '15d7ce40-9442-46b9-95ae-bad6e0096cfb',
-  },
-]
-
 context('Homepage', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000', {
-      onBeforeLoad: function (window) {
-        window.localStorage.setItem('Transactions', JSON.stringify(mockData))
-      },
+    cy.fixture('transactions.json').then((data) => {
+      cy.visit('http://localhost:3000', {
+        onBeforeLoad: function (window) {
+          window.localStorage.setItem('Transactions', JSON.stringify(data))
+        },
+      })
     })
   })
 
