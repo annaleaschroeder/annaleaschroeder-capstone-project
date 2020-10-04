@@ -45,6 +45,7 @@ context('Transaction Overview Page', () => {
       cy.get(`[data-cy=transaction-${mockData[2].id}] #delete`).click({
         force: true,
       })
+      cy.get('[data-cy=monthlyBudget]').should('contain', '-616,78')
     })
   })
 })
