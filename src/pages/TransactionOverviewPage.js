@@ -25,32 +25,43 @@ export default function TransactionOverviewPage() {
   }
 
   return (
-    <PageStyled>
-      <BalanceContainer>
-        <BalanceHeadline data-cy="balanceHeadline">
-          Monthly Balance:
-        </BalanceHeadline>
-        <Balance data-cy="monthlyBudget">
-          {updateMonthlyBudget(transactions)}
-        </Balance>
-      </BalanceContainer>
-      <hr />
-      <TransactionList
-        deleteTransaction={deleteTransaction}
-        transactions={transactions}
-        editTransaction={editTransaction}
-      />
-      <ButtonContainer>
-        <ButtonPositionContainer>
-          <AddTransactionButton />
-        </ButtonPositionContainer>
-      </ButtonContainer>
-    </PageStyled>
+    <PageWrapper>
+      <PageStyled>
+        <BalanceContainer>
+          <BalanceHeadline data-cy="balanceHeadline">
+            Monthly Balance:
+          </BalanceHeadline>
+          <Balance data-cy="monthlyBudget">
+            {updateMonthlyBudget(transactions)}
+          </Balance>
+        </BalanceContainer>
+        <hr />
+        <TransactionList
+          deleteTransaction={deleteTransaction}
+          transactions={transactions}
+          editTransaction={editTransaction}
+        />
+        <ButtonContainer>
+          <ButtonPositionContainer>
+            <AddTransactionButton />
+          </ButtonPositionContainer>
+        </ButtonContainer>
+      </PageStyled>
+    </PageWrapper>
   )
 }
 
+const PageWrapper = styled.main`
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(65ch, 100%)
+    1fr;
+`
+
 const PageStyled = styled.div`
   margin: 20px;
+  grid-column: 2;
 `
 const BalanceContainer = styled.div`
   display: flex;
