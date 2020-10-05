@@ -23,16 +23,18 @@ export default function EditTransactionPage() {
   }, [transaction])
 
   return (
-    <PageStyled>
-      <ReturnToOverviewButton />
-      <ToggleSwitch selected={selected} onToggle={handleToggle} />
-      <TransactionFormInput
-        onSave={onEditUpdateTransactionEntry}
-        notes={transaction.notes}
-        value={transaction.value?.toFixed(2).replace('.', ',')}
-        tag={transaction.tag}
-      />
-    </PageStyled>
+    <PageWrapper>
+      <PageStyled>
+        <ReturnToOverviewButton />
+        <ToggleSwitch selected={selected} onToggle={handleToggle} />
+        <TransactionFormInput
+          onSave={onEditUpdateTransactionEntry}
+          notes={transaction.notes}
+          value={transaction.value?.toFixed(2).replace('.', ',')}
+          tag={transaction.tag}
+        />
+      </PageStyled>
+    </PageWrapper>
   )
   function handleToggle() {
     setSelected(!selected)
@@ -53,6 +55,12 @@ export default function EditTransactionPage() {
   }
 }
 
+const PageWrapper = styled.main`
+  display: grid;
+  grid-template-columns: 1fr min(65ch, 100%) 1fr;
+`
+
 const PageStyled = styled.div`
   margin: 20px;
+  grid-column: 2;
 `

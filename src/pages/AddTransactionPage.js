@@ -9,11 +9,13 @@ export default function AddTransactionPage() {
   const [selected, setSelected] = useState(false)
 
   return (
-    <PageStyled>
-      <ReturnToOverviewButton />
-      <ToggleSwitch selected={selected} onToggle={handleToggle} />
-      <TransactionFormInput onSave={onSaveAddTransactionEntry} />
-    </PageStyled>
+    <PageWrapper>
+      <PageStyled>
+        <ReturnToOverviewButton />
+        <ToggleSwitch selected={selected} onToggle={handleToggle} />
+        <TransactionFormInput onSave={onSaveAddTransactionEntry} />
+      </PageStyled>
+    </PageWrapper>
   )
 
   function handleToggle() {
@@ -33,6 +35,12 @@ export default function AddTransactionPage() {
   }
 }
 
+const PageWrapper = styled.main`
+  display: grid;
+  grid-template-columns: 1fr min(65ch, 100%) 1fr;
+`
+
 const PageStyled = styled.div`
   margin: 20px;
+  grid-column: 2;
 `
